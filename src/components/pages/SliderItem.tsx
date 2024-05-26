@@ -2,25 +2,25 @@ import { Container } from "react-bootstrap";
 
 import "./SliderItem.css";
 
-interface SliderItemProps {
+export interface SliderItemProps {
   title: string;
-  post_img: string;
-  author_name: string;
-  author_img: string;
-  post_date: string;
+  postImg: string;
+  authorName: string;
+  authorImg: string;
+  postDate: string;
 }
 
 const SliderItem: React.FC<SliderItemProps> = ({
   title,
-  post_img,
-  post_date,
-  author_img,
-  author_name,
+  postImg,
+  postDate,
+  authorImg,
+  authorName,
 }) => {
   return (
-<Container className="d-flex flex-column align-items-center col-xl-3 col-lg-4 col-md-12 post_slider-item">
+    <Container className="d-flex flex-column align-items-center post_slider-item">
       <Container fluid className="img-container">
-        <img alt="Post image" src={post_img} />
+        <img alt="Post image" src={postImg} />
       </Container>
       <Container fluid className="d-flex justify-content-center p-4">
         <h5>{title}</h5>
@@ -28,14 +28,14 @@ const SliderItem: React.FC<SliderItemProps> = ({
       <Container className="d-flex justify-content-between my-2">
         <div className="w-100 d-flex justify-content-end px-3">
           <div className="img-container mx-3 author-avatar_container">
-            <img alt="Author avatar" src={author_img} />
+            <img alt="Author avatar" src={authorImg} />
           </div>
           <div>
-            <p className="author-name">{author_name}</p>
+            <p className="author-name">{authorName}</p>
           </div>
         </div>
         <div className="w-100 d-flex justify-justify-content-start px-3">
-          <p>{post_date}</p>
+          <p>{postDate}</p>
         </div>
       </Container>
     </Container>
