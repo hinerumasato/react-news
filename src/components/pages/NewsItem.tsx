@@ -1,20 +1,10 @@
+import React from "react";
 import { Container} from "react-bootstrap";
-import  '../assets/NewItem.css';
 import {BsBook, BsFillChatRightDotsFill} from "react-icons/bs";
-// import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-// import {faHouse} from "@fortawesome/free-solid-svg-icons";
+import  '../assets/NewItem.css';
+import {NewsItemProps} from "../../interfaces/INewsItem.ts";
 
-interface NewsItemProps{
-    title: string;
-    postImg: string;
-    authorName: string;
-    authorImg: string;
-    postDate: string;
-    description: string;
-
-}
-
-const NewsItem: React.FC<NewsItemProps> = ({title, postImg ,authorName,authorImg,postDate, description}) => {
+const NewsItem: React.FC<NewsItemProps> = ({title, postImg, authorName, authorImg, postDate, description}) => {
     return(
         <Container className="newsitem-content d-flex align-items-center mb-4">
             <div className="post-format-wrapper">
