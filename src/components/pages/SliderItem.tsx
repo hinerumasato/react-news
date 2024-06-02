@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import { SliderItemProps } from "../../interfaces/ISliderItem";
-import "./css/SliderItem.css";
+import "../assets/css/SliderItem.css";
 
 
 

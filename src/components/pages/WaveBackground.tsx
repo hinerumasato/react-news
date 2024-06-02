@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import "./css//WaveBackground.css";
+import "../assets/css//WaveBackground.css";
 
 const WaveBackground = () => {
     return (
