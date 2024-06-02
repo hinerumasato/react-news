@@ -1,14 +1,8 @@
 import { Container } from "react-bootstrap";
+import { SliderItemProps } from "../../interfaces/ISliderItem";
+import "./css/SliderItem.css";
 
-import "./SliderItem.css";
 
-export interface SliderItemProps {
-  title: string;
-  postImg: string;
-  authorName: string;
-  authorImg: string;
-  postDate: string;
-}
 
 const SliderItem: React.FC<SliderItemProps> = ({
   title,
@@ -35,7 +29,7 @@ const SliderItem: React.FC<SliderItemProps> = ({
           </div>
         </div>
         <div className="w-100 d-flex justify-justify-content-start px-3">
-          <p>{postDate}</p>
+          <p className="post-date">{postDate}</p>
         </div>
       </Container>
     </Container>
