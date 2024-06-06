@@ -4,7 +4,7 @@ import {BsBook, BsFillChatRightDotsFill} from "react-icons/bs";
 import  '../assets/NewItem.css';
 import {NewsItemProps} from "../../interfaces/INewsItem.ts";
 
-const NewsItem: React.FC<NewsItemProps> = ({title, postImg, authorName, authorImg, postDate, description}) => {
+const NewsItem: React.FC<NewsItemProps> = ({title, postImg, authorName, authorImg, postDate, description, countComment}) => {
     return(
         <Container className="newsitem-content d-flex align-items-center mb-4">
             <div className="post-format-wrapper">
@@ -15,7 +15,7 @@ const NewsItem: React.FC<NewsItemProps> = ({title, postImg, authorName, authorIm
                     <div className="comment-format">
                         <a href="" className="comment-format-link">
                             <BsFillChatRightDotsFill />
-                            <span> 3 Comments</span>
+                            <span> {countComment} Comments</span>
                         </a>
                     </div>
                 </div>

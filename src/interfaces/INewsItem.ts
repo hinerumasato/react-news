@@ -5,4 +5,5 @@ export interface NewsItemProps{
     authorImg: string;
     postDate: string;
     description: string;
+    countComment: number;
 }
