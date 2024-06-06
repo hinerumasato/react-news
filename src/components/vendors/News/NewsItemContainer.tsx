@@ -1,10 +1,18 @@
-import React from "react";
 
-import {NewsItemContainerProps} from "../../interfaces/INewsItemContainer.ts";
+import "../assets/NewItem.css";
 import NewsItem from "./NewsItem.tsx";
-import "../assets/NewItem.css"
 
-const NewsItemContainer: React.FC<NewsItemContainerProps> = ({data}) => {
+const NewsItemContainer = ({data}: {
+    data: Array<{
+        title: string,
+        postImg: string,
+        authorName: string,
+        authorImg: string,
+        postDate: string,
+        description: string,
+        countComment: number
+    }>
+}) => {
     return (
         <ul>
             <div className="d-flex align-items-center py-3 px-3">
