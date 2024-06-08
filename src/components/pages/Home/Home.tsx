@@ -1,7 +1,8 @@
-import { Container } from "react-bootstrap";
+
+
+import { Container } from "react-bootstrap"
 
 export const Home = () => {
-
     return (
         <div>
             <Container>
