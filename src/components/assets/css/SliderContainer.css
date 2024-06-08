@@ -1,0 +1,43 @@
+.slick-arrow.slick-next::before,
+.slick-arrow.slick-prev::before {
+  color: #ff0081 !important;
+  font-size: 3rem !important;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.slick-arrow {
+  z-index: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: 0.3s ease-in-out;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.slick-slide {
+  padding: 1rem;
+}
+
+.slick-arrow.slick-next {
+  right: -2rem;
+}
+
+.slick-arrow.slick-prev {
+  left: -2rem;
+}
+
+.slick-dots li button:before {
+  color: #ff0081; /* Màu của dot */
+  font-size: 10px; /* Kích thước của dot */
+  opacity: 0.2; /* Độ trong suốt của dot */
+  transition: 0.3s ease-in-out;
+}
+.slick-dots li.slick-active button:before {
+  color: #ff0081; /* Màu của dot khi nó đang active */
+  opacity: 1;
+  font-size: 1.1rem;
+}
+

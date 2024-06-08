@@ -1,6 +1,5 @@
-import { Header } from '../partials/Header'
-import { Footer } from '../partials/Footer'
-import { ILayout } from '../../interfaces'
+import { Header, Footer } from '@/components/partials'
+import { ILayout } from '@/interfaces'
 
 export const Master: ILayout = ({ children }) => {
     return (

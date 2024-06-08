@@ -11,7 +11,8 @@ export interface IRoute {
     /**
      * Component được hiển thị khi route được truy cập.
      */
-    Component: React.ComponentType;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    Component: React.ComponentType<any>;
     /**
      * Layout được sử dụng để bao bọc component.
      */
