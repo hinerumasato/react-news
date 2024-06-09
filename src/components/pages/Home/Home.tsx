@@ -1,11 +1,13 @@
 import { Container } from "react-bootstrap"
+import WaveBackground from "./WaveBackground"
+import SubscribeNews from "@/components/partials/SubscribeNews"
 
 export const Home = () => {
     return (
-        <div>
-            <Container>
-                <h1>Home</h1>
-            </Container>
-        </div>
+        <Container>
+            <WaveBackground />
+            {/* <SliderContainer /> */}
+            <SubscribeNews />
+        </Container>
     )
 }
