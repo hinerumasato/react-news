@@ -1,11 +1,39 @@
 import { Container } from "react-bootstrap";
 import NewsItem from "@/components/vendors/News/NewsItem.tsx";
 import {useState} from "react";
+import CategoryBar from "@/components/pages/News/CategoryBar.tsx";
+
 export const News = () => {
+    const categoriesRSS = {
+        'Trang chủ': 'home.rss',
+        'Xã hội': 'xa-hoi.rss',
+        'Giá vàng': 'gia-vang.rss',
+        'Thể thao': 'the-thao.rss',
+        'Giáo dục': 'giao-duc.rss',
+        'Kinh doanh': 'kinh-doanh.rss',
+        'Văn hóa': 'van-hoa.rss',
+        'Du lịch': 'du-lich.rss',
+        'Nhịp sống trẻ': 'nhip-song-tre.rss',
+        'Sức mạnh số': 'suc-manh-so.rss',
+        'Tình yêu - Giới tính': 'tinh-yeu-gioi-tinh.rss',
+        'An sinh': 'an-sinh.rss',
+        'Bạn đọc': 'ban-doc.rss'
+    }
+
+    const [currentRssLink, setCurrentRssLink] = useState(categoriesRSS['Trang chủ']);
     const [newsData, setNewsData] = useState([])
+
+    const handleCategoryButtonClick = (category: string) => {
+        if (Object.keys(categoriesRSS).includes(category)) {
+            const rssLink = categoriesRSS[category];
+            setCurrentRssLink(rssLink);
+        }
+    }
 
     return (
         <Container>
+            <CategoryBar categoriesRSS={categoriesRSS} onCategoryBarClick={handleCategoryButtonClick} />
+            
             <ul>
                 <div className="d-flex align-items-center py-3 px-3">
                     <div className="waves-color me-2">
