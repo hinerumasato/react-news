@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
-import { SliderItemProps } from "../../../interfaces/ISliderItem";
-import "../assets/css/SliderItem.css";
+import { SliderItemProps } from "@/interfaces/ISliderItem";
+import "@/components/assets/css/SliderItem.css";
 
 
 
@@ -11,6 +11,8 @@ const SliderItem: React.FC<SliderItemProps> = ({
   authorImg,
   authorName,
 }) => {
+
+  // console.log(title, postImg, postDate, authorImg, authorName);
   return (
     <Container className="d-flex flex-column align-items-center post_slider-item">
       <Container fluid className="img-container">

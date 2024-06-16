@@ -1,9 +1,9 @@
 import SliderItem from "./SliderItem";
 import Slider from "react-slick";
-import { SliderContainerProps } from "../../../interfaces/ISliderContainer";
+import { SliderContainerProps } from "@/interfaces/ISliderContainer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../assets/css/SliderContainer.css";
+import "@/components/assets/css/SliderContainer.css";
 
 const SliderContainer: React.FC<SliderContainerProps> = ({ content }) => {
   const settings = {
