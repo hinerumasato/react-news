@@ -1,20 +1,14 @@
 
 import "@/components/assets/css/NewItem.css";
 import NewsItem from "./NewsItem.tsx";
+import INewsItem from "@/interfaces/INewsItem.ts";
 
-const NewsItemContainer = ({ data }: {
-    data: Array<{
-        title: string,
-        postImg: string,
-        authorName: string,
-        authorImg: string,
-        postDate: string,
-        description: string,
-        countComment: number
-    }>
+const NewsItemContainer = ({ data, containerTitle }: {
+    data: INewsItem[];
+    containerTitle: string;
 }) => {
     return (
-        <ul>
+        <ul className="list-unstyled ps-5 pe-5">
             <div className="d-flex align-items-center py-3 px-3">
                 <div className="waves-color me-2">
                     <div className="waves-pink">
@@ -30,13 +24,24 @@ const NewsItemContainer = ({ data }: {
                         </svg>
                     </div>
                 </div>
-                <h3>Latest Articles</h3>
+                <h3>{containerTitle}</h3>
             </div>
 
-            {data.map(({ title, postImg, authorName, authorImg, postDate, description, countComment }, index) => {
-                return <NewsItem key={index
-                } title={title} postImg={postImg} authorName={authorName} authorImg={authorImg}
-                    postDate={postDate} description={description} countComment={countComment} />
+            {data.map((item, index) => {
+                return (
+                    <li key={index}>
+                        <NewsItem
+                            title={item.title}
+                            newsImg={item.newsImg}
+                            authorName={item.authorName}
+                            authorImg={item.authorImg}
+                            pubDate={item.pubDate}
+                            description={item.contentSnippet}
+                            categories={item.newsCategories}
+                            link={item.link}
+                        />
+                    </li>
+                )
             })}
         </ul>
     )

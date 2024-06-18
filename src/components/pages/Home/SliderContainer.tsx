@@ -1,11 +1,16 @@
 import SliderItem from "./SliderItem";
 import Slider from "react-slick";
-import { SliderContainerProps } from "@/interfaces/ISliderContainer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/components/assets/css/SliderContainer.css";
+import INewsItem from "@/interfaces/INewsItem";
 
-const SliderContainer: React.FC<SliderContainerProps> = ({ content }) => {
+const SliderContainer = ({ content }: {
+  content: INewsItem[];
+}) => {
+
+  console.table(content);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -42,13 +47,13 @@ const SliderContainer: React.FC<SliderContainerProps> = ({ content }) => {
   return (
     <Slider {...settings}>
       {content.map(
-        ({ title, postImg, postDate, authorImg, authorName }, index) => {
+        ({ title, newsImg, pubDate, authorImg, authorName }, index) => {
           return (
             <SliderItem
               key={index}
               title={title}
-              postImg={postImg}
-              postDate={postDate}
+              newsImg={newsImg}
+              pubDate={pubDate}
               authorImg={authorImg}
               authorName={authorName}
             />
