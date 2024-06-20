@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { SliderItemProps } from "../../interfaces/ISliderItem";
+import { SliderItemProps } from "@/interfaces/ISliderItem.ts";
 import "../assets/css/SliderItem.css";
 
 
