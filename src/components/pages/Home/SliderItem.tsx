@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import "@/components/assets/css/SliderItem.css";
+import "@/assets/css/SliderItem.scss";
 
 
 const SliderItem = (

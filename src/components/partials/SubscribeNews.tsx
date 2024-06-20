@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import "../assets/css/SubscribeNews.css";
+import "@/assets/css/SubscribeNews.scss";
 
 const SubscribeNews = () => {
   return (

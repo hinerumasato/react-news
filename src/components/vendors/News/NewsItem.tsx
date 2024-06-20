@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import { BsBook } from "react-icons/bs";
-import '@/components/assets/css/NewItem.css';
+import '@/assets/css/NewItem.scss';
 
 const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, description, categories, link }: {
     title: string;

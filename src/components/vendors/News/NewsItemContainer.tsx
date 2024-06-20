@@ -1,5 +1,5 @@
 
-import "@/components/assets/css/NewItem.css";
+import "@/assets/css/NewItem.scss";
 import NewsItem from "./NewsItem.tsx";
 import INewsItem from "@/interfaces/INewsItem.ts";
 

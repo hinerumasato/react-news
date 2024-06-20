@@ -2,7 +2,7 @@ import SliderItem from "./SliderItem";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "@/components/assets/css/SliderContainer.css";
+import "@/assets/css/SliderContainer.scss";
 import INewsItem from "@/interfaces/INewsItem";
 
 const SliderContainer = ({ content }: {
