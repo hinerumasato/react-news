@@ -1,3 +1,4 @@
+import React from "react";
 
 export const CategoryBarButton = (
     { children, onClick = () => { }, active = false }: 
