@@ -5,7 +5,7 @@ export const Master: ILayout = ({ children }) => {
     return (
         <>
             <Header />
-            <main>
+            <main style={{ marginTop: '80px' }}>
                 {children}
             </main>
             <Footer />

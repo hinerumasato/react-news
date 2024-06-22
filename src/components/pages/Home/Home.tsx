@@ -6,8 +6,9 @@ import SliderContainer from "./SliderContainer"
 import SubscribeNews from "@/components/partials/SubscribeNews"
 import PaginatePage from "@/components/partials/PaginatePage"
 import NewsItemContainer from "@/components/vendors/News/NewsItemContainer";
-import useGetNewsItems from "@/customHooks/useGetNewsItems"
+import useGetNewsItems from "@/hooks/useGetNewsItems"
 import INewsItem from "@/interfaces/INewsItem"
+import { useTitle } from "@/hooks"
 
 export const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -22,6 +23,8 @@ export const Home = () => {
         setCurrentPage(page);
         console.log(`Current page: ${page}`);
     }
+
+    useTitle('Trang chủ');
 
     useEffect(() => {
         setSliderData(sliderNews);
