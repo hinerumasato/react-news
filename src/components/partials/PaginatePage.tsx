@@ -2,7 +2,7 @@ import Pagination from 'react-bootstrap/Pagination';
 import Container from 'react-bootstrap/Container';
 import React from 'react';
 import PaginationProps from '@/interfaces/IPagination';
-import "@/components/assets/css/PaginatePage.css";
+import "@/assets/css/PaginatePage.scss";
 
 const PaginatePage: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
   const items = [];
