@@ -6,7 +6,7 @@ import { Container, Nav, Navbar } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import "./Header.scss"
 
-export const Header = () => {
+export const Header = React.memo(() => {
 
     const [isShadow, setShadow] = useState(false);
     useEffect(() => {
@@ -45,4 +45,4 @@ export const Header = () => {
             </Navbar>
         </header>
     )
-}
+})
