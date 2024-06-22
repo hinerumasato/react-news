@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import './Footer.scss';
 import useFeeds from '@/hooks/useFeeds';
 import { FooterFeed } from './FooterFeed';
+import React from 'react';
 
-export const Footer = () => {
+export const Footer = React.memo(() => {
 
     const posts = useFeeds('home.rss', 2);
-
+    
     return (
         <footer className='py-5'>
             <Container>
@@ -49,4 +50,4 @@ export const Footer = () => {
             </Container>
         </footer>
     )
-}
+})
