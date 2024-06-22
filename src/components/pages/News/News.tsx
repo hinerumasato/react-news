@@ -1,11 +1,14 @@
 import CategoryBar from "@/components/pages/News/CategoryBar.tsx";
 import { Waves } from "@/components/vendors";
 import NewsItem from "@/components/vendors/News/NewsItem.tsx";
+import { useTitle } from "@/hooks";
 import { useState } from "react";
 import { Container } from "react-bootstrap";
 
 export const News = () => {
     const [newsData] = useState([])
+
+    useTitle('Tin tức');
 
     return (
         <Container>
