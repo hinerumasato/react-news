@@ -3,15 +3,22 @@
 }
 
 .category-bar .button-category {
-    background: linear-gradient(to right, #FC6668, #E10489);
-    height: 2rem !important;
-    border-radius: 100px !important;
-    margin: 0.3rem !important;
-    color: white !important;
-    border: none !important;
+    border: 1px solid #FC6668;
+    border-radius: 100px;
+    margin: 0.3rem;
+    color: #000;
+    background-color: #FFF;
+    transition: .3s;
 }
 
-.category-bar .button-category:before {
+.category-bar .button-category.active {
+    color: #FFF;
+    background-clip: border-box;
+    background-image: linear-gradient(to right, #FC6668, #E10489);
+    border: 1px solid transparent;
+}
+
+/* .category-bar .button-category:before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -30,7 +37,7 @@
 
     opacity: 0;
     transition: 0.4s ease-in-out;
-}
+} */
 
 .category-bar .button-category:hover:before {
     opacity: 0.5;
