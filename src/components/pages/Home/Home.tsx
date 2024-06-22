@@ -6,7 +6,7 @@ import SliderContainer from "./SliderContainer"
 import SubscribeNews from "@/components/partials/SubscribeNews"
 import PaginatePage from "@/components/partials/PaginatePage"
 import NewsItemContainer from "@/components/vendors/News/NewsItemContainer";
-import useGetNewsItems from "@/hooks/useGetNewsItems"
+import useFeeds from "@/hooks/useFeeds"
 import INewsItem from "@/interfaces/INewsItem"
 import { useTitle } from "@/hooks"
 
@@ -15,9 +15,9 @@ export const Home = () => {
     const [sliderData, setSliderData] = useState<INewsItem[]>([]);
     const [newsSportData, setNewsSportData] = useState<INewsItem[]>([]);
     const [newsTechData, setNewsTechData] = useState<INewsItem[]>([]);
-    const sliderNews = useGetNewsItems('home.rss', 8);
-    const sportNews = useGetNewsItems('the-thao.rss', 10)
-    const techNews = useGetNewsItems('khoa-hoc-cong-nghe.rss', 10);
+    const sliderNews = useFeeds('home.rss', 8);
+    const sportNews = useFeeds('the-thao.rss', 10)
+    const techNews = useFeeds('khoa-hoc-cong-nghe.rss', 10);
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);

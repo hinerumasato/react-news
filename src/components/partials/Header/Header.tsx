@@ -1,10 +1,10 @@
-import { Waves } from "@/components/vendors"
-import { Col, Container, Nav, Navbar, Row } from "react-bootstrap"
-import "./Header.scss"
-import { Link } from "react-router-dom"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Logo } from "@/components/vendors"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
+import { Container, Nav, Navbar } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import "./Header.scss"
 
 export const Header = () => {
 
@@ -24,17 +24,10 @@ export const Header = () => {
 
     return (
         <header id="header" className={isShadow ? 'shadow' : ''}>
-            <Navbar bg="light" variant="light">
+            <Navbar bg="light" variant="light" className="py-3">
                 <Container>
                     <Navbar.Brand as={Link} to="/">
-                        <Row className="align-items-center">
-                            <Col>
-                                <Waves />
-                            </Col>
-                            <Col>
-                                <h2 className="m-0 brand-name">React News</h2>
-                            </Col>
-                        </Row>
+                        <Logo />
                     </Navbar.Brand>
                     <Nav>
                         <Nav.Link as={Link} to="/">Home</Nav.Link>

@@ -4,7 +4,7 @@ import { parseISO, format } from 'date-fns';
 import ICategory from '@/interfaces/ICategory';
 import INewsItem from '@/interfaces/INewsItem';
 
-function useGetNewsItems(rss: string, numberOfItems: number = 8) {
+function useFeeds(rss: string, numberOfItems: number = 8) {
     const [newsItems, setNewsItems] = useState<INewsItem[]>([]);
     const API_URL = 'http://localhost:8000/rss/';
 
@@ -58,4 +58,4 @@ function useGetNewsItems(rss: string, numberOfItems: number = 8) {
     return newsItems;
 }
 
-export default useGetNewsItems;
+export default useFeeds;
