@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import "../../assets/css/WaveBackground.css";
+import "@/assets/css/WaveBackground.scss";
 
 const WaveBackground = () => {
     return (
@@ -8,7 +8,6 @@ const WaveBackground = () => {
             <div className="container-fluid wave-container" id="wave-container-bottom"></div>
         </Container>
     );
-
 }
 
 export default WaveBackground;

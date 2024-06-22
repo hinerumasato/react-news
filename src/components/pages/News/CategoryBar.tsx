@@ -1,10 +1,10 @@
 import React, {useRef} from "react";
 import {Button} from "react-bootstrap";
 import ICategoryBar from "@/interfaces/ICategoryBar.ts"
-import "@/components/assets/css/CategoryBar.css"
+import "@/assets/css/CategoryBar.scss"
 
 const CategoryBar: React.FC<ICategoryBar> = ({categoriesRSS, onCategoryBarClick}) => {
-    const categoryBarRef = useRef();
+    const categoryBarRef = useRef<HTMLDivElement | null>(null)
 
     return (
         <div ref={categoryBarRef} className="category-bar">
