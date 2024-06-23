@@ -1,7 +1,7 @@
 import { Logo } from "@/components/vendors"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import "./Header.scss"
