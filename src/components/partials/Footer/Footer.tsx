@@ -4,11 +4,28 @@ import { Link } from 'react-router-dom';
 import './Footer.scss';
 import useFeeds from '@/hooks/useFeeds';
 import { FooterFeed } from './FooterFeed';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import INewsItem from "@/interfaces/INewsItem.ts";
+import Loading from "@/components/vendors/Loading/Loading.tsx";
 
 export const Footer = React.memo(() => {
+    const [posts, setPosts] = useState<INewsItem[]>([])
+    const [isLoading, setIsLoading] = useState(false)
 
-    const posts = useFeeds('home.rss', 2);
+
+    useEffect(() => {
+        setIsLoading(true);
+        const getPost = async () => {
+            const postData: INewsItem[] = await useFeeds('home.rss', 2);
+            setPosts(postData)
+            setIsLoading(false)
+        }
+
+        getPost()
+    }, []);
+
+    if (isLoading)
+        return <Loading />
     
     return (
         <footer className='py-5'>
