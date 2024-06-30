@@ -1,3 +1,4 @@
+import { rssCategories } from "@/constants";
 import { Application } from "@/constants/application";
 
 export class Urls {
@@ -10,5 +11,13 @@ export class Urls {
             return path;
         }
         return null;
+    }
+
+    public static toCategoryType(rssSlug: string | null | undefined): string | null {
+        if(!rssSlug) return null;
+        if(!rssSlug.endsWith('.rss'))
+            rssSlug += '.rss';
+        const filtered = rssCategories.filter(category => category.rss === rssSlug);
+        return filtered.length > 0 ? filtered[0].name : null;
     }
 }

@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom"
 import './NewsDetail.scss'
 import { useEffect } from "react";
+import { Urls } from "@/utils";
 
 const lazyLoading = () => {
     const images = document.querySelectorAll('.content img');
@@ -29,10 +30,13 @@ const lazyLoading = () => {
 }
 
 export const NewsDetail = () => {
-    
+
     const { type, slug } = useParams();
     const data = useCrawlData(`${Application.RSS_FEED_URL}/${type}/${slug}`);
     const feedDetail = useParseFeed(data);
+    const textType = Urls.toCategoryType(type);
+    console.log(textType);
+    
 
     useEffect(() => {
         if(feedDetail?.content)
@@ -42,6 +46,7 @@ export const NewsDetail = () => {
     return (
         <article id="newsDetail">
             <Container style={{ width: '750px', maxWidth: '100%' }}>
+                {textType && <p className="text-secondary pt-3">{textType}</p>}
                 <h1 className="fw-bold">{feedDetail?.title}</h1>
                 <div className="d-flex align-items-center gap-2">
                     <img width={30} height={30} className="rounded rounded-circle" src={feedDetail?.authorAvatar} alt={feedDetail?.authorName} />
