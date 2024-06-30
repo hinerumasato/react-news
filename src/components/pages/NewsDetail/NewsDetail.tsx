@@ -35,13 +35,14 @@ export const NewsDetail = () => {
     const data = useCrawlData(`${Application.RSS_FEED_URL}/${type}/${slug}`);
     const feedDetail = useParseFeed(data);
     const textType = Urls.toCategoryType(type);
-    console.log(textType);
     
 
     useEffect(() => {
+        if(feedDetail?.title)
+            document.title = feedDetail.title;
         if(feedDetail?.content)
             lazyLoading();
-    }, [feedDetail?.content])
+    }, [feedDetail?.content, feedDetail?.title])
 
     return (
         <article id="newsDetail">
