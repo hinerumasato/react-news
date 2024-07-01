@@ -1,9 +1,9 @@
 
 import "@/assets/css/NewItem.scss";
-import NewsItem from "./NewsItem.tsx";
 import INewsItem from "@/interfaces/INewsItem.ts";
+import {NewsItem} from "@/components/vendors/News/NewsItem.tsx";
 
-const NewsItemContainer = ({ data, containerTitle }: {
+export const NewsItemContainer = ({ data, containerTitle }: {
     data: INewsItem[];
     containerTitle: string;
 }) => {
@@ -46,4 +46,3 @@ const NewsItemContainer = ({ data, containerTitle }: {
         </ul>
     )
 }
-export default NewsItemContainer;

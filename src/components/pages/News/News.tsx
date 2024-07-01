@@ -1,12 +1,12 @@
-import CategoryBar from "@/components/pages/News/CategoryBar.tsx";
+import {CategoryBar} from "@/components/pages/News/CategoryBar.tsx";
 import {Waves} from "@/components/vendors";
-import NewsItem from "@/components/vendors/News/NewsItem.tsx";
+import {NewsItem} from "@/components/vendors/News/NewsItem.tsx";
 import {useTitle} from "@/hooks";
 import {useEffect, useState} from "react";
 import {Container} from "react-bootstrap";
 import INewsItem from "@/interfaces/INewsItem.ts";
-import useFeeds from "@/hooks/useFeeds.ts";
-import Loading from "@/components/vendors/Loading/Loading.tsx";
+import {useFeeds} from "@/hooks/useFeeds.ts";
+import {Loading} from "@/components/vendors/Loading/Loading.tsx";
 
 export const News = () => {
     const [newsData, setNewsData] = useState<INewsItem[]>([])
@@ -14,6 +14,7 @@ export const News = () => {
     // const newsItems = useFeeds(currentCategory, 30);
     const [isLoading, setIsLoading] = useState(false);
     useTitle('Tin tức');
+
     useEffect(() => {
         setIsLoading(true);
         const fetchData = async () => {
@@ -59,6 +60,8 @@ export const News = () => {
                     );
                 })}
             </ul>
+
         </Container>
     )
 }
+

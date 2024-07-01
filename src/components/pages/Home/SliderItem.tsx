@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 import "@/assets/css/SliderItem.scss";
 
 
-const SliderItem = (
+export const SliderItem = (
   {
     title,
     pubDate,
@@ -53,4 +53,4 @@ const SliderItem = (
   );
 };
 
-export default SliderItem;
+

@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 
 type category = { ['name']: string, ['rss']: string }
 
-const CategoryBar = (
+export const CategoryBar = (
     {onChangeCategory}: { onChangeCategory: (category: category) => void }
 ) => {
 
@@ -22,9 +22,6 @@ const CategoryBar = (
     }
 
     return (
-        <div className="navbar-container">
-            <div className="navbar-wrapper">
-                <div className="navbar">
                     <div className="category-bar">
                         {rssCategories.map((category, index) => {
                             return (
@@ -39,10 +36,6 @@ const CategoryBar = (
                             )
                         })}
                     </div>
-                </div>
-            </div>
-        </div>
     )
 }
 
-export default CategoryBar;

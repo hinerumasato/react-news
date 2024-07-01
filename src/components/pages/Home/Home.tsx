@@ -1,11 +1,11 @@
 import {Container} from "react-bootstrap"
 import {useEffect, useState} from "react"
-import WaveBackground from "./WaveBackground"
-import SliderContainer from "./SliderContainer"
+import {WaveBackground} from "./WaveBackground"
+import {SliderContainer} from "./SliderContainer"
 import SubscribeNews from "@/components/partials/SubscribeNews"
 import PaginatePage from "@/components/partials/PaginatePage"
-import NewsItemContainer from "@/components/vendors/News/NewsItemContainer";
-import useFeeds from "@/hooks/useFeeds"
+import {NewsItemContainer} from "@/components/vendors/News/NewsItemContainer";
+import {useFeeds} from "@/hooks/useFeeds"
 import INewsItem from "@/interfaces/INewsItem"
 import {useTitle} from "@/hooks"
 

@@ -2,7 +2,7 @@ import {Container} from "react-bootstrap";
 import {ClipLoader} from "react-spinners";
 import "./Loading.scss"
 
-const Loading = () => {
+export const Loading = () => {
     return (
         <Container className="loading-background" fluid>
             <ClipLoader
@@ -15,4 +15,5 @@ const Loading = () => {
     )
 }
 
-export default Loading;
+
+

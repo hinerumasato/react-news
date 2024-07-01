@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 import { BsBook } from "react-icons/bs";
 import '@/assets/css/NewItem.scss';
 
-const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, description, categories, link }: {
+export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, description, categories, link }: {
     title: string;
     newsImg: string;
     authorName: string;
@@ -52,4 +52,3 @@ const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, description,
     );
 }
 
-export default NewsItem;

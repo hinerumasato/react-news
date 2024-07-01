@@ -6,7 +6,7 @@ import useFeeds from '@/hooks/useFeeds';
 import { FooterFeed } from './FooterFeed';
 import React, {useEffect, useState} from 'react';
 import INewsItem from "@/interfaces/INewsItem.ts";
-import Loading from "@/components/vendors/Loading/Loading.tsx";
+import {Loading} from "@/components/vendors/Loading/Loading.tsx";
 
 export const Footer = React.memo(() => {
     const [posts, setPosts] = useState<INewsItem[]>([])
