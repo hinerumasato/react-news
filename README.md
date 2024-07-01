@@ -15,13 +15,13 @@
 1. Clone repository này:
 
   ```bash
-  git clone https://github.com/your-username/react-news-app.git
+  git clone https://github.com/hinerumasato/react-news.git
   ```
 
 2. Di chuyển vào thư mục của ứng dụng:
 
   ```bash
-  cd react-news-app
+  cd react-news
   ```
 
 3. Cài đặt các dependencies:
@@ -33,10 +33,17 @@
 4. Chạy ứng dụng:
 
   ```bash
-  npm start
+  npm run dev
   ```
 
-5. Mở trình duyệt và truy cập vào địa chỉ [http://localhost:3000](http://localhost:3000) để xem ứng dụng.
+  Hoặc chạy ứng dụng dưới dạng Production
+
+  ```bash
+  npm run build
+  npm run preview
+  ```
+
+5. Mở trình duyệt và truy cập vào địa chỉ [http://localhost:5173](http://localhost:5173) để xem ứng dụng.
 
 ## Sử dụng
 
