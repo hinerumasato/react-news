@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
 import { BsBook } from "react-icons/bs";
 import '@/assets/css/NewItem.scss';
+import INewsItem from "@/interfaces/INewsItem.ts";
 
 export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, description, categories, link }: {
     title: string;
@@ -16,8 +17,9 @@ export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, descr
     const handleReadMoreClick = () => {
         // Lấy danh sách tin tức đã xem từ local storage
         const viewedNews = JSON.parse(localStorage.getItem('viewedNews') || '[]');
-
-        // Thêm tin tức hiện tại vào danh sách
+        // ktra tin tức hiện tại tồn tại chưa
+        const isNewsViewed = viewedNews.some((newItem: INewsItem) => newItem.link === link);
+        if(!isNewsViewed)
         viewedNews.push({ title, newsImg, authorName, authorImg, pubDate, contentSnippet: description, newsCategories: categories , link });
 
         // Lưu lại danh sách tin tức đã xem vào local storage
