@@ -13,6 +13,17 @@ export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, descr
     link: string;
 
 }) => {
+    const handleReadMoreClick = () => {
+        // Lấy danh sách tin tức đã xem từ local storage
+        const viewedNews = JSON.parse(localStorage.getItem('viewedNews') || '[]');
+
+        // Thêm tin tức hiện tại vào danh sách
+        viewedNews.push({ title, newsImg, authorName, authorImg, pubDate, contentSnippet: description, newsCategories: categories , link });
+
+        // Lưu lại danh sách tin tức đã xem vào local storage
+        localStorage.setItem('viewedNews', JSON.stringify(viewedNews))
+    };
+
     return (
         <Container className="newsitem-content d-flex align-items-center mb-4">
             <div className="post-format-wrapper">
@@ -41,7 +52,7 @@ export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, descr
                 </div>
                 <div className="newsitem-desc my-2">{description}</div>
                 <div className="newsitem-below mt-4 d-flex justify-content-between">
-                    <a href={link} className="button btn-custom">Đọc thêm</a>
+                    <a href={link} className="button btn-custom" onClick={handleReadMoreClick}>Đọc thêm</a>
                     <div className="newsitem-min-read">
                         <BsBook className="me-2 fs-5" />
                         <span className="fs-6">{categories}</span>
