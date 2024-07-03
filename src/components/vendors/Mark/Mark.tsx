@@ -1,6 +1,6 @@
-import mark from '/svg/mark.svg'
+// import mark from '/svg/mark.svg'
 export const Mark = () => {
-    return (
-        <img src={mark} alt="" />
-    )
+    // return (
+    //     // <img src={mark} alt="" />
+    // )
 }
