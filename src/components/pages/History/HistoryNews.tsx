@@ -14,7 +14,9 @@ export const HistoryNews = () => {
     });
 
     // Lưu state vào local storage mỗi khi nó thay đổi
-
+    useEffect(() => {
+        localStorage.setItem('viewedNews', JSON.stringify(viewedNews));
+    }, [viewedNews]);
 
     return (
         <div>
