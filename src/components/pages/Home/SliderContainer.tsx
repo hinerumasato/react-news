@@ -9,8 +9,6 @@ export const SliderContainer = ({ content }: {
   content: INewsItem[];
 }) => {
 
-  console.table(content);
-
   const settings = {
     dots: true,
     infinite: true,

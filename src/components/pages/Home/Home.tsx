@@ -8,16 +8,17 @@ import { useFeeds } from "@/hooks/useFeeds"
 import INewsItem from "@/interfaces/INewsItem"
 import { useTitle } from "@/hooks"
 import { HomeNewsContainer } from "./HomeNewsContainer"
+import { IHomeNews } from "@/interfaces/IHomeNews"
+import { useFetchHomeFeeds } from "@/hooks/useFetchHomeFeeds"
 
 export const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [sliderData, setSliderData] = useState<INewsItem[]>([]);
-    const [newsSportData, setNewsSportData] = useState<INewsItem[]>([]);
-    const [newsTechData, setNewsTechData] = useState<INewsItem[]>([]);
+    const [allHomeNewsObjects, setAllHomeNewsObjects] = useState<IHomeNews[]>([]);
+
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
-        console.log(`Current page: ${page}`);
     }
 
     useTitle('Trang chủ');
@@ -26,12 +27,11 @@ export const Home = () => {
 
         const getData = async () => {
             const sliderNews = await useFeeds('home.rss', 8);
-            const sportNews = await useFeeds('the-thao.rss', 10)
-            const techNews = await useFeeds('khoa-hoc-cong-nghe.rss', 10);
+            const allHomeNewsObjects = await useFetchHomeFeeds(8);
 
             setSliderData(sliderNews);
-            setNewsSportData(sportNews);
-            setNewsTechData(techNews);
+            setAllHomeNewsObjects(allHomeNewsObjects);
+
         }
 
         getData();
@@ -44,8 +44,11 @@ export const Home = () => {
 
 
             <Container className="d-flex justify-content-center flex-column">
-                <HomeNewsContainer data={newsSportData} containerTitle="Thể thao" />
-                <HomeNewsContainer data={newsTechData} containerTitle="Khoa học công nghệ" />
+                {allHomeNewsObjects.map((homeNewsObject, index) => {
+                    return (
+                        <HomeNewsContainer key={index} data={homeNewsObject.data} containerTitle={homeNewsObject.category} />
+                    )
+                })}
 
 
             </Container>
