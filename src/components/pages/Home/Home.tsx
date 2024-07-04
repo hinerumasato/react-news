@@ -10,11 +10,13 @@ import { useTitle } from "@/hooks"
 import { HomeNewsContainer } from "./HomeNewsContainer"
 import { IHomeNews } from "@/interfaces/IHomeNews"
 import { useFetchHomeFeeds } from "@/hooks/useFetchHomeFeeds"
+import { Loading } from "@/components/vendors/Loading/Loading"
 
 export const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [sliderData, setSliderData] = useState<INewsItem[]>([]);
     const [allHomeNewsObjects, setAllHomeNewsObjects] = useState<IHomeNews[]>([]);
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const handlePageChange = (page: number) => {
@@ -25,6 +27,8 @@ export const Home = () => {
 
     useEffect(() => {
 
+        setIsLoading(true);
+
         const getData = async () => {
             const sliderNews = await useFeeds('home.rss', 8);
             const allHomeNewsObjects = await useFetchHomeFeeds(8);
@@ -32,10 +36,15 @@ export const Home = () => {
             setSliderData(sliderNews);
             setAllHomeNewsObjects(allHomeNewsObjects);
 
+            setIsLoading(false);
         }
 
         getData();
     }, []);
+
+    if (isLoading) {
+        return <Loading />
+    }
 
     return (
         <Container>

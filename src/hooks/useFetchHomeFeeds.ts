@@ -46,9 +46,6 @@ export const useFetchHomeFeeds = async (numberItemsPerRss = 8) => {
         homeNews.push(homeNewsObject);
     }));
 
-    console.log("Home news: ", homeNews);
-
-
     return homeNews;
 
 };

@@ -2,11 +2,11 @@ import { Logo, Waves } from '@/components/vendors';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Footer.scss';
-import useFeeds from '@/hooks/useFeeds';
+import { useFeeds } from '@/hooks/useFeeds';
 import { FooterFeed } from './FooterFeed';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import INewsItem from "@/interfaces/INewsItem.ts";
-import {Loading} from "@/components/vendors/Loading/Loading.tsx";
+import { Loading } from "@/components/vendors/Loading/Loading.tsx";
 
 export const Footer = React.memo(() => {
     const [posts, setPosts] = useState<INewsItem[]>([])
@@ -26,7 +26,7 @@ export const Footer = React.memo(() => {
 
     if (isLoading)
         return <Loading />
-    
+
     return (
         <footer className='py-5'>
             <Container>
