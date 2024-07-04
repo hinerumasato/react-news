@@ -1,13 +1,13 @@
-import {Container} from "react-bootstrap"
-import {useEffect, useState} from "react"
-import {WaveBackground} from "./WaveBackground"
-import {SliderContainer} from "./SliderContainer"
+import { Container } from "react-bootstrap"
+import { useEffect, useState } from "react"
+import { WaveBackground } from "./WaveBackground"
+import { SliderContainer } from "./SliderContainer"
 import SubscribeNews from "@/components/partials/SubscribeNews"
 import PaginatePage from "@/components/partials/PaginatePage"
-import {NewsItemContainer} from "@/components/vendors/News/NewsItemContainer";
-import {useFeeds} from "@/hooks/useFeeds"
+import { useFeeds } from "@/hooks/useFeeds"
 import INewsItem from "@/interfaces/INewsItem"
-import {useTitle} from "@/hooks"
+import { useTitle } from "@/hooks"
+import { HomeNewsContainer } from "./HomeNewsContainer"
 
 export const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -39,16 +39,19 @@ export const Home = () => {
 
     return (
         <Container>
-            <WaveBackground/>
-            <SliderContainer content={sliderData}/>
+            <WaveBackground />
+            <SliderContainer content={sliderData} />
+
 
             <Container className="d-flex justify-content-center flex-column">
-                <NewsItemContainer data={newsSportData} containerTitle="Thể thao"/>
-                <NewsItemContainer data={newsTechData} containerTitle="Khoa học công nghệ"/>
+                <HomeNewsContainer data={newsSportData} containerTitle="Thể thao" />
+                <HomeNewsContainer data={newsTechData} containerTitle="Khoa học công nghệ" />
+
+
             </Container>
 
-            <SubscribeNews/>
-            <PaginatePage currentPage={currentPage} totalPages={10} onPageChange={handlePageChange}/>
+            <SubscribeNews />
+            <PaginatePage currentPage={currentPage} totalPages={10} onPageChange={handlePageChange} />
         </Container>
     )
 }
