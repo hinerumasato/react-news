@@ -8,10 +8,6 @@ export const rssCategories = [
         rss: 'xa-hoi.rss'
     },
     {
-        name: 'Giá vàng',
-        rss: 'gia-vang.rss'
-    },
-    {
         name: 'Thể thao',
         rss: 'the-thao.rss'
     },

@@ -1,14 +1,15 @@
-
 import "@/assets/css/NewItem.scss";
 import INewsItem from "@/interfaces/INewsItem.ts";
-import {NewsItem} from "@/components/vendors/News/NewsItem.tsx";
+import { FocusedNewsItem } from "./FocusedNewsItem";
+import { Container } from "react-bootstrap";
+import { FooterFeed } from "@/components/partials/Footer/FooterFeed";
 
-export const NewsItemContainer = ({ data, containerTitle }: {
+export const HomeNewsContainer = ({ data, containerTitle }: {
     data: INewsItem[];
     containerTitle: string;
 }) => {
     return (
-        <ul className="list-unstyled ps-5 pe-5">
+        <Container className="d-flex justify-content-center flex-column">
             <div className="d-flex align-items-center py-3 px-3">
                 <div className="waves-color me-2">
                     <div className="waves-pink">
@@ -27,22 +28,32 @@ export const NewsItemContainer = ({ data, containerTitle }: {
                 <h3>{containerTitle}</h3>
             </div>
 
-            {data.map((item, index) => {
-                return (
-                    <li key={index}>
-                        <NewsItem
-                            title={item.title}
-                            newsImg={item.newsImg}
-                            authorName={item.authorName}
-                            authorImg={item.authorImg}
-                            pubDate={item.pubDate}
-                            description={item.contentSnippet}
-                            categories={item.newsCategories}
-                            link={item.link}
-                        />
-                    </li>
-                )
-            })}
-        </ul>
+            <div className="row g-3">
+                <div className="col-md-12 col-lg-8">
+                    <FocusedNewsItem
+                        authorImg={data[0]?.authorImg}
+                        authorName={data[0]?.authorName}
+                        description={data[0]?.contentSnippet}
+                        link={data[0]?.link}
+                        newsImg={data[0]?.newsImg}
+                        pubDate={data[0]?.pubDate}
+                        title={data[0]?.title}
+                        categories={data[0]?.newsCategories}
+                    />
+                </div>
+
+                <div className="col-md-12 col-lg-4">
+                    <ul className="list-unstyled ps-5 pe-5">
+                        {data.slice(1).map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    <FooterFeed post={item} />
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+            </div>
+        </Container >
     )
 }
