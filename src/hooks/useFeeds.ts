@@ -1,12 +1,12 @@
 
-import {IRssItem} from '@/interfaces/IRssItem';
-import {parseISO, format} from 'date-fns';
+import { IRssItem } from '@/interfaces/IRssItem';
+import { parseISO, format } from 'date-fns';
 import ICategory from '@/interfaces/ICategory';
 import INewsItem from "@/interfaces/INewsItem";
 
 export const useFeeds = async (rss: string, numberOfItems: number = 8): Promise<INewsItem[]> => {
     const API_URL = 'http://localhost:8000/rss/';
-    const response = await fetch(API_URL + rss, {method: 'GET'});
+    const response = await fetch(API_URL + rss, { method: 'GET' });
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -35,10 +35,8 @@ export const useFeeds = async (rss: string, numberOfItems: number = 8): Promise<
             return category._;
         }).join(', ');
 
-        return {title, pubDate, authorName, authorImg, newsImg, newsCategories, contentSnippet, link};
+        return { title, pubDate, authorName, authorImg, newsImg, newsCategories, contentSnippet, link };
     })
 
     return updatedItems;
 }
-
-export default useFeeds;

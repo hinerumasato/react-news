@@ -1,4 +1,4 @@
-import {SliderItem} from "./SliderItem";
+import { SliderItem } from "./SliderItem";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,8 +8,6 @@ import INewsItem from "@/interfaces/INewsItem";
 export const SliderContainer = ({ content }: {
   content: INewsItem[];
 }) => {
-
-  console.table(content);
 
   const settings = {
     dots: true,
@@ -44,10 +42,14 @@ export const SliderContainer = ({ content }: {
     ],
   };
 
+  const handleClick = (link: string) => {
+    window.open(link, "_blank");
+  };
+
   return (
     <Slider {...settings}>
       {content.map(
-        ({ title, newsImg, pubDate, authorImg, authorName }, index) => {
+        ({ title, newsImg, pubDate, authorImg, authorName, link }, index) => {
           return (
             <SliderItem
               key={index}
@@ -56,6 +58,7 @@ export const SliderContainer = ({ content }: {
               pubDate={pubDate}
               authorImg={authorImg}
               authorName={authorName}
+              onClick={() => handleClick(link)}
             />
           );
         }

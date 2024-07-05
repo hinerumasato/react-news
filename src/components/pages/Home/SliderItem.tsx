@@ -8,18 +8,20 @@ export const SliderItem = (
     pubDate,
     authorName,
     authorImg,
-    newsImg
+    newsImg,
+    onClick
   }: {
     title: string;
     pubDate: string;
     authorName: string;
     authorImg: string;
     newsImg: string;
+    onClick: () => void;
   }
 ) => {
 
   return (
-    <Container className="d-flex flex-column align-items-center post_slider-item">
+    <Container onClick={onClick} className="d-flex flex-column align-items-center post_slider-item">
       <Container fluid className="img-container">
         <img alt="Post image" src={newsImg} />
       </Container>
