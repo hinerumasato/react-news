@@ -51,4 +51,8 @@ export const rssCategories = [
         name: 'Bạn đọc',
         rss: 'ban-doc.rss'
     },
+    {
+        name: 'Khoa học công nghệ',
+        rss: 'khoa-hoc-cong-nghe.rss'
+    }
 ]
