@@ -28,16 +28,19 @@ const lazyLoading = () => {
     images.forEach(image => {
         observer.observe(image);
     });
+}
 
+const extractTextContent = (html: string) => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || "";
 }
 
 export const NewsDetail = () => {
-    const [content, setContent] = useState<string>("");
-
     const { type, slug } = useParams();
     const data = useCrawlData(`${Application.RSS_FEED_URL}/${type}/${slug}`);
     const feedDetail = useParseFeed(data);
     const textType = Urls.toCategoryType(type);
+    const [ttsContent, setTtsContent] = useState<string>("");
 
 
     useEffect(() => {
@@ -48,10 +51,14 @@ export const NewsDetail = () => {
 
     }, [feedDetail?.content, feedDetail?.title])
 
-    const extractTextContent = (html: string) => {
-        const doc = new DOMParser().parseFromString(html, 'text/html');
-        return doc.body.textContent || "";
-    }
+    useEffect(() => {
+        if (feedDetail?.title && feedDetail?.sapo && feedDetail?.content)
+            setTtsContent(extractTextContent(
+                feedDetail?.title as string + " " +
+                feedDetail?.sapo as string + " " +
+                feedDetail?.content as string));
+    }, [feedDetail?.title, feedDetail?.sapo, feedDetail?.content])
+
 
     return (
         <article id="newsDetail">
@@ -66,10 +73,7 @@ export const NewsDetail = () => {
                     </div>
                 </div>
 
-                <TtsAudioMemo text={extractTextContent(
-                    feedDetail?.title as string + " " +
-                    feedDetail?.sapo as string + " " +
-                    feedDetail?.content as string)} />
+                <TtsAudioMemo text={ttsContent} />
 
                 <p className="py-3" style={{ fontStyle: 'italic' }}>{feedDetail?.sapo}</p>
                 <div className="content" dangerouslySetInnerHTML={{ __html: feedDetail?.content as string }}></div>

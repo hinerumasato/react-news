@@ -1,6 +1,7 @@
 
 import { Master } from "@/components/layouts/Master";
 import { Home, News, NewsDetail } from "@/components/pages";
+import { HistoryNews } from "@/components/pages/History/HistoryNews";
 import { IRoute } from "@/interfaces";
 
 export const pageRoutes: IRoute[] = [
@@ -9,7 +10,7 @@ export const pageRoutes: IRoute[] = [
         Component: Home,
         Layout: Master,
         pageTitle: "Trang chủ",
-    }, 
+    },
     {
         path: "/news",
         Component: News,
