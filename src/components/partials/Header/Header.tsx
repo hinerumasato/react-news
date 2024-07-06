@@ -5,10 +5,15 @@ import React, { useEffect, useState } from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import "./Header.scss"
+import {SearchNews} from "@/components/pages/Search/SearchNews.tsx";
 
 export const Header = React.memo(() => {
 
     const [isShadow, setShadow] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const handleSearchModal = () => {
+        setShowModal(true);
+    }
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if(window.scrollY > 50)
@@ -36,13 +41,14 @@ export const Header = React.memo(() => {
                     </Nav>
 
                     <Nav>
-                        <button className="btn btn-custom d-flex align-items-center gap-2 fw-semibold">
+                        <button className="btn btn-custom d-flex align-items-center gap-2 fw-semibold" onClick={handleSearchModal}>
                             <FontAwesomeIcon icon={faSearch} />
                             <span>Tìm kiếm bài viết</span>
                         </button>
                     </Nav>
                 </Container>
             </Navbar>
+            <SearchNews showModal={showModal} setShowModal={setShowModal}/>
         </header>
     )
 })
