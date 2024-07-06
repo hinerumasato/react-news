@@ -1,10 +1,11 @@
 import INewsItem from "@/interfaces/INewsItem.ts";
 import { useEffect, useState } from "react";
 import { NewsItem } from "@/components/vendors/News/NewsItem.tsx";
+import Container from "react-bootstrap/Container";
 
 export const HistoryNews = () => {
     // Lấy dữ liệu từ local storage khi khởi tạo state
-    const [viewedNews, setViewedNews] = useState<INewsItem[]>(() => {
+    const [viewedNews] = useState<INewsItem[]>(() => {
         const savedNews = localStorage.getItem('viewedNews');
         if (savedNews) {
             return JSON.parse(savedNews);
@@ -20,7 +21,7 @@ export const HistoryNews = () => {
 
     return (
         <div>
-            <div className="d-flex align-items-center py-3 px-3">
+            <Container className="d-flex align-items-center py-3 px-3">
                 <div className="waves-color me-2">
                     <div className="waves-pink">
                         <svg viewBox="0 0 16 5" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +37,7 @@ export const HistoryNews = () => {
                     </div>
                 </div>
                 <h3>Lịch sử xem</h3>
-            </div>
+            </Container>
             <ul>
                 {viewedNews.map(({
                                      title,
