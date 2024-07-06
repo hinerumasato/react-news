@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom"
 import './NewsDetail.scss'
 import { useEffect } from "react";
 import { Urls } from "@/utils";
+import { useState } from "react";
+import TtsAudioMemo from "./TtsAudio";
 
 const lazyLoading = () => {
     const images = document.querySelectorAll('.content img');
@@ -30,19 +32,26 @@ const lazyLoading = () => {
 }
 
 export const NewsDetail = () => {
+    const [content, setContent] = useState<string>("");
 
     const { type, slug } = useParams();
     const data = useCrawlData(`${Application.RSS_FEED_URL}/${type}/${slug}`);
     const feedDetail = useParseFeed(data);
     const textType = Urls.toCategoryType(type);
-    
+
 
     useEffect(() => {
-        if(feedDetail?.title)
+        if (feedDetail?.title)
             document.title = feedDetail.title;
-        if(feedDetail?.content)
+        if (feedDetail?.content)
             lazyLoading();
+
     }, [feedDetail?.content, feedDetail?.title])
+
+    const extractTextContent = (html: string) => {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        return doc.body.textContent || "";
+    }
 
     return (
         <article id="newsDetail">
@@ -56,6 +65,12 @@ export const NewsDetail = () => {
                         <p className="m-0 text-secondary">{feedDetail?.authorTime}</p>
                     </div>
                 </div>
+
+                <TtsAudioMemo text={extractTextContent(
+                    feedDetail?.title as string + " " +
+                    feedDetail?.sapo as string + " " +
+                    feedDetail?.content as string)} />
+
                 <p className="py-3" style={{ fontStyle: 'italic' }}>{feedDetail?.sapo}</p>
                 <div className="content" dangerouslySetInnerHTML={{ __html: feedDetail?.content as string }}></div>
             </Container>
