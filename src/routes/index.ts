@@ -3,7 +3,7 @@ import { Master } from "@/components/layouts/Master";
 import { Home, News, NewsDetail } from "@/components/pages";
 import { IRoute } from "@/interfaces";
 import {HistoryNews} from "@/components/pages/History/HistoryNews.tsx";
-import {SearchNews} from "@/components/pages/Search/SearchNews.tsx";
+import {SearchResult} from "@/components/pages/Search/SearchResult.tsx";
 
 export const pageRoutes: IRoute[] = [
     {
@@ -30,7 +30,7 @@ export const pageRoutes: IRoute[] = [
     },
     {
         path: "/search-results",
-        Component: SearchNews,
+        Component: SearchResult,
         Layout: Master
     }
 

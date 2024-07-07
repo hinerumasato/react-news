@@ -10,7 +10,6 @@ import {useFeeds} from "@/hooks/useFeeds.ts";
 export const SearchNews:React.FC<SearchNewsProps> =({showModal, setShowModal}) => {
     const [inputValue, setInputValue] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('Tất cả');
-    const [searchResult, setSearchResult] = useState<INewsItem[]>([]);
     const navigate = useNavigate();
     const handleCategoryChange = (event:{target: {value: React.SetStateAction<string>;};}) => {
         setSelectedCategory(event.target.value);
@@ -26,7 +25,6 @@ export const SearchNews:React.FC<SearchNewsProps> =({showModal, setShowModal}) =
                 return item.title.toLowerCase().includes(inputValue.toLowerCase())
             }
             );
-            setSearchResult(results);
             navigate("/search-results", {state: {results: results}});
             handleClose();
         })
