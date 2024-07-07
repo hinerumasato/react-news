@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {SearchNewsProps} from "@/interfaces/SearchNewsProps.ts";
 import {Button, Form, Modal} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {rssCategories} from "@/constants";
 import INewsItem from "@/interfaces/INewsItem.ts";
 import {useFeeds} from "@/hooks/useFeeds.ts";
@@ -18,7 +18,20 @@ export const SearchNews:React.FC<SearchNewsProps> =({showModal, setShowModal}) =
     const handleChangeInpput = (event: {target: {value: React.SetStateAction<string>;};}) => {
         setInputValue(event.target.value);
     }
+    const handleSearch = () => {
+        const category = rssCategories.find(category => category.name === selectedCategory);
+        const rssLink = category ? category.rss : 'home.rss';
+        useFeeds(rssLink, 50).then((newItems:INewsItem[]) => {
+            const results = newItems.filter(item => {
+                return item.title.toLowerCase().includes(inputValue.toLowerCase())
+            }
+            );
+            setSearchResult(results);
+            navigate("/search-results", {state: {results: results}});
+            handleClose();
+        })
 
+    }
     const handleClose = () => setShowModal(false);
     return(
         <Modal show={showModal} onHide={handleClose}>
@@ -31,19 +44,19 @@ export const SearchNews:React.FC<SearchNewsProps> =({showModal, setShowModal}) =
                         <Form.Control
                             className="border-2"
                             type="text"
+                            value={inputValue}
+                            onChange={handleChangeInpput}
                             placeholder="Nhập tin tức tìm kiếm"/>
-                        <Link to={{
-                            pathname:"/search-results",
-                        }}>
-                            <Button className="btn-sm wave-button">Tìm kiếm</Button>
-                        </Link>
+                            <Button className="btn-sm wave-button"onClick={handleSearch}>Tìm kiếm</Button>
                     </Form>
                     <div className="py-5">
                         <Form.Label className="me-3">
                             Danh mục thể loại
                         </Form.Label>
-                        <Form.Select className="w-50 rounded-2 py-2 px-1">
-
+                        <Form.Select className="w-50 rounded-2 py-2 px-1"value={selectedCategory} onChange={handleCategoryChange}>
+                            {rssCategories.map((category, index) => (
+                                <option key={index} value={category.name}>{category.name}</option>
+                            ))}
                         </Form.Select>
                     </div>
                 </Container>
