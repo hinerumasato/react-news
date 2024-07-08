@@ -1,7 +1,5 @@
-// src/components/Weather.tsx
 import React, { useState } from 'react';
 import {CityOption} from "@/interfaces/CityOption.ts";
-import Select from 'react-select';
 import {useWeathers} from "@/components/partials/Header/useWeathers.ts";
 
 const cities: CityOption[] = [
@@ -12,25 +10,32 @@ const cities: CityOption[] = [
     { value: 'Can Tho', label: 'Can Tho' }
 ];
 
-// const Weather: React.FC = () => {
-//     const [selectedCity, setSelectedCity] = useState<CityOption | null>(null);
-//     const { temperature, weatherIcon } = useWeathers(selectedCity);
-//
-//     return (
-//         <div>
-//             <Select
-//                 options={cities}
-//                 onChange={setSelectedCity}
-//                 placeholder="Select a city"
-//             />
-//             {temperature !== null && weatherIcon && (
-//                 <div>
-//                     <h2>Temperature in {selectedCity?.label}: {temperature}°C</h2>
-//                     <img src={weatherIcon} alt="weather icon" />
-//                 </div>
-//             )}
-//         </div>
-//     );
-// };
+const Weather: React.FC = () => {
+    const [selectedCity, setSelectedCity] = useState<CityOption | null>(null);
+    const { temperature, weatherIcon } = useWeathers(selectedCity);
+
+    const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedValue = event.target.value;
+        const city = cities.find(c => c.value === selectedValue) || null;
+        setSelectedCity(city);
+    };
+
+    return (
+        <div>
+            <select onChange={handleCityChange} defaultValue="">
+                <option value="" disabled>Select a city</option>
+                {cities.map(city => (
+                    <option>{city.label}</option>
+                ))}
+            </select>
+            {temperature !== null && weatherIcon && (
+                <div>
+                    <h2>{temperature}°C</h2>
+                    <img src={weatherIcon} alt="weather icon" />
+                </div>
+            )}
+        </div>
+    );
+};
 
 export default Weather;
