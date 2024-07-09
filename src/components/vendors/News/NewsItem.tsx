@@ -1,12 +1,9 @@
 import { Container } from "react-bootstrap";
 import { BsBook } from "react-icons/bs";
 import '@/assets/css/NewItem.scss';
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import { Urls } from "@/utils";
-=======
 import INewsItem from "@/interfaces/INewsItem.ts";
->>>>>>> origin/development
 
 export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, description, categories, link }: {
     title: string;
@@ -59,11 +56,7 @@ export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, descr
                 </div>
                 <div className="newsitem-desc my-2">{description}</div>
                 <div className="newsitem-below mt-4 d-flex justify-content-between">
-<<<<<<< HEAD
-                    <Link to={Urls.toNewsDetailLink(link) as string} className="button btn-custom">Đọc thêm</Link>
-=======
-                    <a href={link} className="button btn-custom" onClick={handleReadMoreClick}>Đọc thêm</a>
->>>>>>> origin/development
+                    <Link to={Urls.toNewsDetailLink(link) as string} className="button btn-custom"onClick={handleReadMoreClick}>Đọc thêm</Link>
                     <div className="newsitem-min-read">
                         <BsBook className="me-2 fs-5" />
                         <span className="fs-6">{categories}</span>

@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {CityOption} from "@/interfaces/CityOption.ts";
-import {useWeathers} from "@/components/partials/Header/useWeathers.ts";
+import {useWeathers} from "@/hooks/useWeathers.ts";
+import "@/assets/css/Weather.scss";
+import {Popover, OverlayTrigger} from 'react-bootstrap';
+import {IWeatherItem} from "@/interfaces/IWeatherItem.ts";
+
 
 const cities: CityOption[] = [
-    { value: 'Hồ Chí Minh', label: 'Hồ Chí Minh' },
-    { value: 'Hà Nội', label: 'Hà Nội' },
-    { value: 'Đà Nẵng', label: 'Đà Nẵng' },
-    { value: 'Hải Phòng', label: 'Hải Phòng' },
-    { value: 'Cần Thơ', label: 'Cần Thơ' }
+    {value: 'Ho Chi Minh City', label: 'Hồ Chí Minh'},
+    {value: 'Ha Noi', label: 'Hà Nội'},
+    {value: 'Đà Nẵng', label: 'Đà Nẵng'},
+    {value: 'Hải Phòng', label: 'Hải Phòng'},
+    {value: 'Cần Thơ', label: 'Cần Thơ'}
 ];
 const getCurrentDate = () => {
     const days = ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'];
@@ -20,9 +24,18 @@ const getCurrentDate = () => {
     return `${day}, ${date}/${month}/${year}`;
 };
 
-const Weather: React.FC = () => {
-    const [selectedCity, setSelectedCity] = useState<CityOption | null>(null);
-    const { temperature, weatherIcon } = useWeathers(selectedCity);
+export const Weather: React.FC = () => {
+    const [selectedCity, setSelectedCity] = useState<CityOption | null>(cities[0]);
+    const [weatherItem, setWeatherItem] = useState<IWeatherItem>()
+
+    useEffect(() => {
+        const fetchWeatherData = async () => {
+            const weatherData = await useWeathers(selectedCity);
+            setWeatherItem(weatherData)
+        }
+        fetchWeatherData();
+
+    }, [selectedCity]);
 
     const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedValue = event.target.value;
@@ -31,21 +44,72 @@ const Weather: React.FC = () => {
     };
 
     return (
-        <div>
-            <div>{getCurrentDate()}</div>
-            <select className="border-0 bg-white fs-4" onChange={handleCityChange} defaultValue="">
-                {cities.map(city => (
-                    <option>{city.label}</option>
-                ))}
-            </select>
-            {temperature !== null && weatherIcon && (
-                <div>
-                    <h2>{temperature}°C</h2>
-                    <img src={weatherIcon} alt="weather icon" />
-                </div>
-            )}
+        <div className="weather-container">
+            <table className="weather-table">
+                <tbody>
+                <tr>
+                    <td className="date-time">{getCurrentDate()}</td>
+                    {weatherItem?.temperature != null && weatherItem?.weatherIcon && (
+                        <td rowSpan={2}>
+                            <OverlayTrigger placement="right" overlay={
+                                <Popover>
+                                    <Popover.Header as="h4">
+                                        {weatherItem.description}
+                                    </Popover.Header>
+                                    <Popover.Body>
+                                        <dl>
+                                            <dt>Nhiệt độ hiện tại</dt>
+                                            <dd>{weatherItem.temperature} &deg;C</dd>
+
+                                            <dt>Cảm giác như</dt>
+                                            <dd>{weatherItem.feels_like} &deg;C</dd>
+
+                                            <dt>Độ ẩm</dt>
+                                            <dd>{weatherItem.humidity}%</dd>
+
+                                            <dt>Nhiệt độ cao nhất</dt>
+                                            <dd>{weatherItem.temp_max} &deg;C</dd>
+
+                                            <dt>Nhiệt độ thấp nhất</dt>
+                                            <dd>{weatherItem.temp_min} &deg;C</dd>
+
+                                            <dt>Áp suất không khí</dt>
+                                            <dd>{weatherItem.pressure} hPA</dd>
+
+                                            <dt>Tốc độ gió</dt>
+                                            <dd>{weatherItem.wind_speed} m/s</dd>
+
+                                            <dt>Tầm nhìn xa</dt>
+                                            <dd>{weatherItem.visibility / 1000} km</dd>
+
+                                            <dt>Độ che phủ mây</dt>
+                                            <dd>{weatherItem.clouds}%</dd>
+                                        </dl>
+                                    </Popover.Body>
+                                </Popover>
+                            }
+                            >
+                                <div className="weather-info ms-4">
+                                    <div className="temperature">{Math.round(weatherItem.temperature)}°C</div>
+                                    <img src={weatherItem.weatherIcon} alt="weather icon" className="weather-icon"/>
+                                </div>
+                            </OverlayTrigger>
+                        </td>
+                    )}
+                </tr>
+                <tr>
+                    <td>
+                        <select className="city-select" onChange={handleCityChange} defaultValue="">
+                            {cities.map(city => (
+                                <option key={city.value} value={city.value}>{city.label}</option>
+                            ))}
+                        </select>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
         </div>
     );
 };
 
-export default Weather;
