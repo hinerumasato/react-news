@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import "./Header.scss"
-import Weather from "@/components/partials/Header/Weather.tsx";
+import {Weather} from "@/components/partials/Header/Weather.tsx";
 
 export const Header = React.memo(() => {
 
