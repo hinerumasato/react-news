@@ -7,37 +7,43 @@ import { changeThemeAction } from "@/redux/actions";
 
 export const ThemeToggleButton = () => {
     const dispatch = useDispatch();
-
     const isLightTheme = useSelector((state) => state.theme === 'light');
 
     useEffect(() => {
 
         const localStoragetheme = localStorage.getItem('theme') || 'light';
-        if (localStoragetheme !== (isLightTheme ? 'light' : 'dark')) {
-            dispatch(changeThemeAction(localStoragetheme));
-        }
-    }, [dispatch, isLightTheme]);
+        dispatch(changeThemeAction(localStoragetheme));
+
+        applyTheme(localStoragetheme);
+    }, [dispatch]);
 
     const toggleTheme = () => {
-        dispatch(changeThemeAction(isLightTheme ? 'dark' : 'light'));
+        const newTheme = isLightTheme ? 'dark' : 'light';
+        dispatch(changeThemeAction(newTheme));
 
-        if (isLightTheme) {
+        applyTheme(newTheme);
+    };
+
+    const applyTheme = (theme: string) => {
+        if (theme === 'dark') {
             document.body.classList.remove('light-theme');
             document.body.classList.add('dark-theme');
         } else {
             document.body.classList.remove('dark-theme');
             document.body.classList.add('light-theme');
         }
-    };
+    }
 
     return (
-        <div className="fab-button">
+        <div>
             <Around
+                style={{ width: '50px', height: '50px' }}
                 duration={750}
                 toggled={isLightTheme}
                 toggle={toggleTheme}
                 placeholder={undefined}
                 color={isLightTheme ? '#f1c40f' : '#2c3e50'}
+                reversed={false}
             />
         </div>
     );

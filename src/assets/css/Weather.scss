@@ -1,17 +1,16 @@
 .weather-container {
-  padding: 15px; /* Điều chỉnh padding để tạo khoảng cách giữa các thành phần */
   text-align: center;
 }
 
 .date-time {
-  color: #666;
   margin-bottom: 10px;
 }
 
 .city-select {
   border: none;
   background-color: transparent;
-  appearance: none; /* Loại bỏ mũi tên mặc định của select */
+  appearance: none;
+  /* Loại bỏ mũi tên mặc định của select */
   font-size: 1.2rem;
   color: #333;
   margin-right: 20px;
@@ -34,4 +33,44 @@
   height: auto;
   color: #ffd700;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+}
+
+.light-theme {
+  .date-time {
+    color: #333;
+  }
+
+  .city-select {
+    color: #333;
+  }
+}
+
+.dark-theme {
+  .date-time {
+    color: #fefefe;
+  }
+
+  .city-select {
+    color: #fefefe;
+  }
+
+  .temperature {
+    color: #ff0081;
+  }
+
+  .popover {
+    background-color: #212529;
+    color: #fefefe;
+
+    box-shadow: 3px 3px 10px 3px rgba(78, 78, 78, 0.4);
+
+    &-title {
+      background-color: #333;
+    }
+
+    dt,
+    dd {
+      color: #fefefe
+    }
+  }
 }
