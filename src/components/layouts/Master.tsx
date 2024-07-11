@@ -1,5 +1,6 @@
 import { Header, Footer } from '@/components/partials'
 import { ILayout } from '@/interfaces'
+import { ThemeToggleButton } from '../vendors/Buttons/ThemeToggleButton'
 
 export const Master: ILayout = ({ children }) => {
     return (
@@ -9,6 +10,7 @@ export const Master: ILayout = ({ children }) => {
                 {children}
             </main>
             <Footer />
+            <ThemeToggleButton />
         </>
     )
 }

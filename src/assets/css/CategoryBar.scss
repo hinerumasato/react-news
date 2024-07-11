@@ -1,15 +1,12 @@
 .category-bar {
     margin-bottom: 20px;
     align-items: center;
-
 }
 
 .category-bar .button-category {
     border: 1px solid #FC6668;
     border-radius: 100px;
     margin: 0.3rem;
-    color: #000;
-    background-color: #FFF;
     transition: .3s;
 }
 
@@ -18,4 +15,14 @@
     background-clip: border-box;
     background-image: linear-gradient(to right, #FC6668, #E10489);
     border: 1px solid transparent;
+}
+
+.light-theme .category-bar .button-category {
+    color: #FC6668;
+    background-color: #FFF;
+}
+
+.dark-theme .category-bar .button-category {
+    color: #FFF;
+    background-color: #212529;
 }
