@@ -6,6 +6,7 @@ import { Container, Nav, Navbar } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import "./Header.scss"
 import {SearchNews} from "@/components/pages/Search/SearchNews.tsx";
+import {Weather} from "@/components/partials/Header/Weather.tsx";
 
 export const Header = React.memo(() => {
 
@@ -34,6 +35,7 @@ export const Header = React.memo(() => {
                     <Navbar.Brand as={Link} to="/">
                         <Logo />
                     </Navbar.Brand>
+                    <Weather/>
                     <Nav>
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/news">News</Nav.Link>
