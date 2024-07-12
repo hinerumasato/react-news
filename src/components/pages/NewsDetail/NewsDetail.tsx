@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom"
 import './NewsDetail.scss'
 import { useEffect } from "react";
 import { Urls } from "@/utils";
+import { useState } from "react";
+import TtsAudioMemo from "./TtsAudio";
 
 const lazyLoading = () => {
     const images = document.querySelectorAll('.content img');
@@ -26,23 +28,37 @@ const lazyLoading = () => {
     images.forEach(image => {
         observer.observe(image);
     });
+}
 
+const extractTextContent = (html: string) => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || "";
 }
 
 export const NewsDetail = () => {
-
     const { type, slug } = useParams();
     const data = useCrawlData(`${Application.RSS_FEED_URL}/${type}/${slug}`);
     const feedDetail = useParseFeed(data);
     const textType = Urls.toCategoryType(type);
-    
+    const [ttsContent, setTtsContent] = useState<string>("");
+
 
     useEffect(() => {
-        if(feedDetail?.title)
+        if (feedDetail?.title)
             document.title = feedDetail.title;
-        if(feedDetail?.content)
+        if (feedDetail?.content)
             lazyLoading();
+
     }, [feedDetail?.content, feedDetail?.title])
+
+    useEffect(() => {
+        if (feedDetail?.title && feedDetail?.sapo && feedDetail?.content)
+            setTtsContent(extractTextContent(
+                feedDetail?.title as string + " " +
+                feedDetail?.sapo as string + " " +
+                feedDetail?.content as string));
+    }, [feedDetail?.title, feedDetail?.sapo, feedDetail?.content])
+
 
     return (
         <article id="newsDetail">
@@ -56,6 +72,9 @@ export const NewsDetail = () => {
                         <p className="m-0 text-secondary">{feedDetail?.authorTime}</p>
                     </div>
                 </div>
+
+                <TtsAudioMemo text={ttsContent} />
+
                 <p className="py-3" style={{ fontStyle: 'italic' }}>{feedDetail?.sapo}</p>
                 <div className="content" dangerouslySetInnerHTML={{ __html: feedDetail?.content as string }}></div>
             </Container>

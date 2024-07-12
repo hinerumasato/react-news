@@ -35,7 +35,6 @@ export const Home = () => {
 
             setSliderData(sliderNews);
             setAllHomeNewsObjects(allHomeNewsObjects);
-
             setIsLoading(false);
         }
 
@@ -58,7 +57,6 @@ export const Home = () => {
                         <HomeNewsContainer key={index} data={homeNewsObject.data} containerTitle={homeNewsObject.category} />
                     )
                 })}
-
 
             </Container>
 
