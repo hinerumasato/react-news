@@ -1,6 +1,9 @@
 import { Container } from "react-bootstrap"
 import '@/assets/css/NewItem.scss';
 import { BsBook } from "react-icons/bs";
+import {useViewedNews} from "@/hooks/useViewedNews.ts";
+import {Link} from "react-router-dom";
+import {Urls} from "@/utils";
 
 export const FocusedNewsItem = ({ newsImg, title, authorImg, authorName, pubDate, description, link, categories }: {
   newsImg: string;
@@ -12,6 +15,8 @@ export const FocusedNewsItem = ({ newsImg, title, authorImg, authorName, pubDate
   link: string;
   categories: string;
 }) => {
+  const { handleReadMoreClick } = useViewedNews();
+
   return (
     <Container className="newsitem-content d-flex flex-column justify-content-center mb-4">
       <div className="post-format-wrapper">
@@ -47,7 +52,7 @@ export const FocusedNewsItem = ({ newsImg, title, authorImg, authorName, pubDate
         </div>
         <div className="newsitem-desc my-2">{description}</div>
         <div className="newsitem-below mt-4 d-flex justify-content-center">
-          <a href={link} className="button btn-custom">Đọc thêm</a>
+          <Link onClick={() => handleReadMoreClick({ title, newsImg, authorName, authorImg, pubDate, contentSnippet: description, newsCategories: categories , link })} to={Urls.toNewsDetailLink(link) as string} className="button btn-custom">Đọc thêm</Link>
         </div>
       </div>
     </Container>

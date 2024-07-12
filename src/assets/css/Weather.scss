@@ -1,0 +1,37 @@
+.weather-container {
+  padding: 15px; /* Điều chỉnh padding để tạo khoảng cách giữa các thành phần */
+  text-align: center;
+}
+
+.date-time {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.city-select {
+  border: none;
+  background-color: transparent;
+  appearance: none; /* Loại bỏ mũi tên mặc định của select */
+  font-size: 1.2rem;
+  color: #333;
+  margin-right: 20px;
+}
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.temperature {
+  font-size: 1.1rem;
+  margin-right: 10px;
+  color: #e30b87;
+}
+
+.weather-info img {
+  width: 50px;
+  height: auto;
+  color: #ffd700;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+}
