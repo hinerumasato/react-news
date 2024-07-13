@@ -61,7 +61,24 @@ export const About: React.FC = () => {
                     </Card>
                 </Col>
             </Row>
-
+            <WaveBackground/>
+            <Row className="my-5">
+                <Col md={7}>
+                    <h2>Liên hệ với chúng tôi </h2>
+                    <p className="fs-5 my-3">
+                        Nếu bạn có bất kỳ câu hỏi nào hãy liên hệ với chúng tôi để được giải quyết một cách tốt nhất.
+                    </p>
+                    <form className='d-flex align-items-center w-75 my-3'>
+                        <input className='form-control d-inline-block' type="email" placeholder="Nhập email của bạn"/>
+                        <button className='btn-custom' style={{borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
+                                type="submit">Gửi
+                        </button>
+                    </form>
+                </Col>
+                <Col md={5}>
+                    <img src="src/components/pages/About/img1.webp" className="img-fluid"/>
+                </Col>
+            </Row>
         </Container>
     );
 }
