@@ -1,0 +1,52 @@
+.light-theme {
+    .modal {
+        background-color: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10px);
+
+        &-dialog {
+            background-color: #fff !important;
+            color: #212529 !important;
+        }
+
+    }
+}
+
+.dark-theme {
+    .modal {
+        background-color: rgba(33, 37, 41, 0.4);
+        backdrop-filter: blur(10px);
+
+        &-dialog {
+            background-color: #212529 !important;
+            color: #fefefe !important;
+
+        }
+
+        &-header {
+            background-color: #333 !important;
+
+            .modal-title {
+                color: #fefefe !important;
+            }
+
+            .btn-close {
+                filter: invert(1);
+            }
+        }
+
+        &-body {
+            background-color: #212529 !important;
+
+            input,
+            select {
+                background-color: #333 !important;
+                color: #fefefe !important;
+            }
+
+            input::placeholder {
+                color: #fefefe !important;
+            }
+        }
+
+    }
+}

@@ -1,12 +1,12 @@
 import "@/assets/css/CategoryBar.scss";
-import {CategoryBarButton} from "@/components/vendors/Buttons/CategoryBarButton";
-import {rssCategories} from "@/constants";
-import {useEffect, useState} from "react";
+import { CategoryBarButton } from "@/components/vendors/Buttons/CategoryBarButton";
+import { rssCategories } from "@/constants";
+import { useEffect, useState } from "react";
 
 type category = { ['name']: string, ['rss']: string }
 
 export const CategoryBar = (
-    {onChangeCategory}: { onChangeCategory: (category: category) => void }
+    { onChangeCategory }: { onChangeCategory: (category: category) => void }
 ) => {
 
     const initialRssLink = localStorage.getItem('currentRssLink') || rssCategories[0].rss;
@@ -22,20 +22,20 @@ export const CategoryBar = (
     }
 
     return (
-                    <div className="category-bar">
-                        {rssCategories.map((category, index) => {
-                            return (
+        <div className="category-bar mt-5">
+            {rssCategories.map((category, index) => {
+                return (
 
-                                <CategoryBarButton key={index} data-link={category.rss}
-                                                   active={category.rss === currentRssLink}
-                                                   onClick={() => {
-                                                       changeCategory(category)
-                                                   }}>
-                                    {category.name}
-                                </CategoryBarButton>
-                            )
-                        })}
-                    </div>
+                    <CategoryBarButton key={index} data-link={category.rss}
+                        active={category.rss === currentRssLink}
+                        onClick={() => {
+                            changeCategory(category)
+                        }}>
+                        {category.name}
+                    </CategoryBarButton>
+                )
+            })}
+        </div>
     )
 }
 

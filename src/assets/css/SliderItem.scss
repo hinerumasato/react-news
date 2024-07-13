@@ -1,9 +1,48 @@
+.light-theme {
+    .post_slider-item {
+        background-color: #fff;
+        box-shadow: 3px 3px 10px 3px rgba(185, 185, 185, 0.4);
+
+    }
+
+    .post-title {
+        color: #212529;
+    }
+
+    .author-name {
+        color: #ff0081;
+    }
+
+    .post-date {
+        color: #212529;
+    }
+}
+
+.dark-theme {
+    .post_slider-item {
+        background-color: #212529;
+        box-shadow: 3px 3px 10px 3px rgba(78, 78, 78, 0.4);
+    }
+
+    .post-title {
+        color: #fefefe;
+    }
+
+    .author-name {
+        color: #ff0081;
+    }
+
+    .post-date {
+        color: #fefefe;
+    }
+}
+
+
+
 .post_slider-item {
     border-radius: 10px;
-    background-color: #fff;
     padding: 0 !important;
     overflow: hidden;
-    box-shadow: 3px 3px 10px 3px rgba(185, 185, 185, 0.4);
 
     max-height: 35rem;
     transition: 0.3s ease-in;

@@ -6,7 +6,8 @@
     background: linear-gradient(90deg, #4876e6 0%, #8957e9 100%);
     padding: 4rem;
     color: #fff;
-    overflow: hidden;
+    overflow: hidden !important;
+    position: relative;
 }
 
 .subscribe-news__container::before {
@@ -42,12 +43,12 @@
 .subscribe-form * {
     border-radius: 10px;
     padding: 0.5rem 1rem;
- 
+
 }
 
 .subscribe-form .form-control:focus {
-   outline: none !important;
-  box-shadow: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .wave-button {
@@ -84,7 +85,7 @@
 }
 
 @keyframes waves {
-  to {
-    background-position: 1600px 130%, 3150px 130%, 5300px 130%;
-  }
+    to {
+        background-position: 1600px 130%, 3150px 130%, 5300px 130%;
+    }
 }
