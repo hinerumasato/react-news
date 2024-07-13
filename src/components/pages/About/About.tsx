@@ -1,0 +1,67 @@
+import Container from "react-bootstrap/Container";
+import {Card, Col, Row} from "react-bootstrap";
+import {WaveBackground} from "@/components/pages/Home/WaveBackground.tsx";
+import React from "react";
+
+export const About: React.FC = () => {
+    return (
+        <Container >
+            <Card className="text-center my-5 z-3">
+                <Card.Body>
+                    <Card.Title className="fs-2">Giới thiệu</Card.Title>
+                    <Card.Text className="fs-4 fw-light">
+                        Chào mừng bạn đến với trang tin tức của chúng tôi. Đây là nguồn tin tức đáng tin cậy, cung cấp
+                        thông tin nhanh chóng và chính xác về các sự kiện diễn ra trên khắp Việt Nam và thế giới.
+                        Chúng tôi cam kết mang đến cho bạn những bản tin chất lượng, bao quát nhiều lĩnh vực như chính
+                        trị, kinh tế, xã hội, văn hóa, giải trí, thể thao và công nghệ.
+                        Tại đây bạn có thể đọc và chia sẻ những điều mà bạn quan tâm và giúp bạn có cái nhìn toàn diện
+                        và khách quan hơn về thế giới xung quanh.
+                        Hãy đồng hành cùng trang web tin tức của chúng tôi để cập nhật những tin tức mới nhất, khám phá
+                        những câu chuyện hấp dẫn và tham gia vào cộng đồng yêu thích thông tin!
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+
+            <h2 className="my-4 text-center">Thông tin thành viên</h2>
+            <Row className="mb-5">
+                <Col md={4}>
+                    <Card className="z-3">
+                        <img src="src/components/pages/About/img11.webp"/>
+                        <Card.Body>
+                            <Card.Title className="text-center">TRẦN THẮNG LỢI</Card.Title>
+                            <Card.Text>
+                                Member A is responsible for the editorial content. With years of experience in
+                                journalism, A ensures that our news is accurate and timely.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col md={4}>
+                    <Card className="z-3">
+                        <img src="src/components/pages/About/img22.jpg"/>
+                        <Card.Body>
+                            <Card.Title className="text-center">NGUYỄN PHƯƠNG NHÃ</Card.Title>
+                            <Card.Text>
+                                Member B handles the technical side of our website. B is a skilled developer who ensures
+                                our site runs smoothly and efficiently.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col md={4}>
+                    <Card className="z-3">
+                        <img src="src/components/pages/About/img33.jpg"/>
+                        <Card.Body>
+                            <Card.Title className="text-center">LẠI THỊ BÍCH PHƯỢNG</Card.Title>
+                            <Card.Text>
+                                Member C is in charge of marketing and outreach. C's expertise helps us reach a wider
+                                audience and engage with our readers.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+
+        </Container>
+    );
+}
