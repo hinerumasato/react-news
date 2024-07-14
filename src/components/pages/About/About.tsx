@@ -2,11 +2,12 @@ import Container from "react-bootstrap/Container";
 import {Card, Col, Row} from "react-bootstrap";
 import {WaveBackground} from "@/components/pages/Home/WaveBackground.tsx";
 import React from "react";
+import "@/assets/css/About.scss";
 
 export const About: React.FC = () => {
     return (
-        <Container >
-            <Card className="text-center my-5 z-3">
+        <Container className="py-5">
+            <Card className="card-one text-center mb-5 z-3">
                 <Card.Body>
                     <Card.Title className="fs-2">Giới thiệu</Card.Title>
                     <Card.Text className="fs-4 fw-light">
@@ -22,10 +23,10 @@ export const About: React.FC = () => {
                 </Card.Body>
             </Card>
 
-            <h2 className="my-4 text-center">Thông tin thành viên</h2>
-            <Row className="mb-5">
+            <h2 className=" text-center">Thông tin thành viên</h2>
+            <Row className="my-5">
                 <Col md={4}>
-                    <Card className="z-3">
+                    <Card className="z-3 rounded-3 card-one">
                         <img src="src/components/pages/About/img11.webp"/>
                         <Card.Body>
                             <Card.Title className="text-center">TRẦN THẮNG LỢI</Card.Title>
@@ -37,7 +38,7 @@ export const About: React.FC = () => {
                     </Card>
                 </Col>
                 <Col md={4}>
-                    <Card className="z-3">
+                    <Card className="z-3 card-one">
                         <img src="src/components/pages/About/img22.jpg"/>
                         <Card.Body>
                             <Card.Title className="text-center">NGUYỄN PHƯƠNG NHÃ</Card.Title>
@@ -49,7 +50,7 @@ export const About: React.FC = () => {
                     </Card>
                 </Col>
                 <Col md={4}>
-                    <Card className="z-3">
+                    <Card className="z-3 card-one">
                         <img src="src/components/pages/About/img33.jpg"/>
                         <Card.Body>
                             <Card.Title className="text-center">LẠI THỊ BÍCH PHƯỢNG</Card.Title>
@@ -62,17 +63,15 @@ export const About: React.FC = () => {
                 </Col>
             </Row>
             <WaveBackground/>
-            <Row className="my-5">
-                <Col md={7}>
+            <Row>
+                <Col md={7} className="p-4">
                     <h2>Liên hệ với chúng tôi </h2>
-                    <p className="fs-5 my-3">
+                    <p className="fs-5 my-4">
                         Nếu bạn có bất kỳ câu hỏi nào hãy liên hệ với chúng tôi để được giải quyết một cách tốt nhất.
                     </p>
-                    <form className='d-flex align-items-center w-75 my-3'>
-                        <input className='form-control d-inline-block' type="email" placeholder="Nhập email của bạn"/>
-                        <button className='btn-custom' style={{borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
-                                type="submit">Gửi
-                        </button>
+                    <form action="" className="input-group subscribe-form w-75">
+                        <input className="form-control card-one" type="email" placeholder="Nhập email của bạn"/>
+                        <button type="submit" className="btn btn-sm wave-button" role="button">Gửi</button>
                     </form>
                 </Col>
                 <Col md={5}>
