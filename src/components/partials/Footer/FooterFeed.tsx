@@ -2,6 +2,7 @@ import INewsItem from "@/interfaces/INewsItem";
 import { LegacyRef, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import './FooterFeed.scss';
+import { Urls } from "@/utils";
 
 export const FooterFeed = ({ post }: { post: INewsItem }) => {
 
@@ -11,11 +12,10 @@ export const FooterFeed = ({ post }: { post: INewsItem }) => {
         if(element.current) {
             const div = element.current;
             element.current.addEventListener('click', () => {
-                const link = div.getAttribute('data-to');
+                const link = div.getAttribute('data-to') as string;
+                const to = Urls.toNewsDetailLink(link) as string;
                 if(link) {
-                    if(link.startsWith('http')) {
-                        window.open(link, '_blank');
-                    } else naviage(link);
+                    naviage(to);
                 }
             })
         }

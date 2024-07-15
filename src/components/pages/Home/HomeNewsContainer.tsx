@@ -3,6 +3,7 @@ import INewsItem from "@/interfaces/INewsItem.ts";
 import { FocusedNewsItem } from "./FocusedNewsItem";
 import { Container } from "react-bootstrap";
 import { FooterFeed } from "@/components/partials/Footer/FooterFeed";
+import { Urls } from "@/utils";
 
 export const HomeNewsContainer = ({ data, containerTitle }: {
     data: INewsItem[];
@@ -34,7 +35,7 @@ export const HomeNewsContainer = ({ data, containerTitle }: {
                         authorImg={data[0]?.authorImg}
                         authorName={data[0]?.authorName}
                         description={data[0]?.contentSnippet}
-                        link={data[0]?.link}
+                        link={Urls.toNewsDetailLink(data[0]?.link) as string}
                         newsImg={data[0]?.newsImg}
                         pubDate={data[0]?.pubDate}
                         title={data[0]?.title}

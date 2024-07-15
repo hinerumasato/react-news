@@ -4,11 +4,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/assets/css/SliderContainer.scss";
 import INewsItem from "@/interfaces/INewsItem";
+import { useNavigate } from "react-router-dom";
+import { Urls } from "@/utils";
 
 export const SliderContainer = ({ content }: {
   content: INewsItem[];
 }) => {
-
+  const navigate = useNavigate();
   const settings = {
     dots: true,
     infinite: true,
@@ -43,7 +45,8 @@ export const SliderContainer = ({ content }: {
   };
 
   const handleClick = (link: string) => {
-    window.open(link, "_blank");
+    const to = Urls.toNewsDetailLink(link) as string;
+    navigate(to);
   };
 
   return (
