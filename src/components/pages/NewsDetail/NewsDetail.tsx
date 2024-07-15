@@ -9,7 +9,6 @@ import { Link, useParams } from "react-router-dom";
 import './NewsDetail.scss';
 import { Social } from "./Social/Social";
 import { Waves } from "@/components/vendors";
-import { useState } from "react";
 import TtsAudioMemo from "./TtsAudio";
 
 const lazyLoading = () => {
@@ -62,9 +61,9 @@ export const NewsDetail = () => {
     useEffect(() => {
         feeds.then(data => setRelatedFeeds(data));
     }, [feeds]);
-  
+
     useEffect(() => {
-      if (feedDetail?.title && feedDetail?.sapo && feedDetail?.content)
+        if (feedDetail?.title && feedDetail?.sapo && feedDetail?.content)
             setTtsContent(extractTextContent(
                 feedDetail?.title as string + " " +
                 feedDetail?.sapo as string + " " +
@@ -119,4 +118,5 @@ export const NewsDetail = () => {
                 </Container>
             </article>
         </section>
+    )
 }
