@@ -1,9 +1,27 @@
 #newsDetail {
     .content {
-        img, figure, video {
+        img,
+        figure,
+        video {
             max-width: 100%;
             height: auto;
             margin-bottom: 20px;
         }
+    }
+
+    .related-news-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .related-news-snippet {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
