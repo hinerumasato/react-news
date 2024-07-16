@@ -10,6 +10,7 @@ import './NewsDetail.scss';
 import { Social } from "./Social/Social";
 import { Waves } from "@/components/vendors";
 import TtsAudioMemo from "./TtsAudio";
+import { SummaryNews } from "./SummaryNews";
 
 const lazyLoading = () => {
     const images = document.querySelectorAll('.content img');
@@ -49,6 +50,7 @@ export const NewsDetail = () => {
     const [relatedFeeds, setRelatedFeeds] = useState<Array<INewsItem>>();
     const feeds = useFeeds(`${type}.rss`, 6);
     const [ttsContent, setTtsContent] = useState<string>("");
+    const [newsContent, setNewsContent] = useState<string>("");
 
     useEffect(() => {
         if (feedDetail?.title)
@@ -68,6 +70,8 @@ export const NewsDetail = () => {
                 feedDetail?.title as string + " " +
                 feedDetail?.sapo as string + " " +
                 feedDetail?.content as string));
+
+        setNewsContent(extractTextContent(feedDetail?.content as string));
     }, [feedDetail?.title, feedDetail?.sapo, feedDetail?.content])
 
     return (
@@ -88,7 +92,9 @@ export const NewsDetail = () => {
                                     <p className="m-0 text-secondary">{feedDetail?.authorTime}</p>
                                 </div>
                             </div>
-                            <TtsAudioMemo text={ttsContent} />
+                             {ttsContent && <TtsAudioMemo text={ttsContent} />}
+
+                             {newsContent && <SummaryNews content={newsContent} />}
                             <p className="py-3" style={{ fontStyle: 'italic' }}>{feedDetail?.sapo}</p>
                             <div className="content" dangerouslySetInnerHTML={{ __html: feedDetail?.content as string }}></div>
                             <div className="related-news">

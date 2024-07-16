@@ -23,6 +23,10 @@
         width: 1.5rem;
         height: 1.5rem;
     }
+
+    #responsive-navbar-nav {
+        justify-content: space-around;
+    }
 }
 
 
@@ -76,4 +80,9 @@
             filter: invert(1);
         }
     }
+
+    .navbar-toggler {
+        filter: invert(1);
+    }
 }
+

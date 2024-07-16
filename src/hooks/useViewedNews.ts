@@ -2,7 +2,7 @@ import {useCallback} from "react";
 import INewsItem from "@/interfaces/INewsItem.ts";
 
 export const useViewedNews = () => {
-    const handleReadMoreClick = useCallback((newsItem: INewsItem) => {
+    const handleStorageNews = useCallback((newsItem: INewsItem) => {
         // Lấy danh sách tin tức đã xem từ local storage
         const viewedNews = JSON.parse(localStorage.getItem('viewedNews') || '[]');
         // ktra tin tức hiện tại tồn tại chưa
@@ -14,5 +14,5 @@ export const useViewedNews = () => {
         localStorage.setItem('viewedNews', JSON.stringify(viewedNews))
     }, []);
 
-    return { handleReadMoreClick };
+    return { handleStorageNews };
 };

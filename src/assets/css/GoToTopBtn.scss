@@ -1,0 +1,14 @@
+.scrollTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: deeppink;
+  cursor: pointer;
+  transition: 0.5s;
+  z-index: 1000;
+  font-size: 80px;
+}
+
+.scrollTop:hover {
+  color: #e74c3c;
+}
