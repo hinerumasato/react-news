@@ -1,21 +1,63 @@
-import { forwardRef } from "react";
-import { FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, TwitterIcon, TwitterShareButton } from "react-share";
+import { faFacebook, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { EmailShareButton, FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
 import './Social.scss';
 
-export const Social = forwardRef<HTMLElement, { url: string }>((props, ref) => {
-    const { url } = props;
-
+export const Social = ({ url }: { url: string }) => {
     return (
-        <section ref={ref} id="socialShare">
-            <FacebookShareButton url={url}>
-                <FacebookIcon round={true} size={40} />
-            </FacebookShareButton>
-            <LinkedinShareButton url={url}>
-                <LinkedinIcon round={true} size={40} />
-            </LinkedinShareButton>
+        <div className="share-buttons">
             <TwitterShareButton url={url}>
-                <TwitterIcon round={true} size={40} />
+                <div className="share-button">
+                    <div className="share-button-secondary">
+                        <div className="share-button-secondary-content">
+                            share on twitter
+                        </div>
+                    </div>
+                    <div className="share-button-primary">
+                        <FontAwesomeIcon icon={faTwitter} />
+                    </div>
+                </div>
             </TwitterShareButton>
-        </section>
-    );
-});
+
+            <FacebookShareButton url={url}>
+                <div className="share-button">
+                    <div className="share-button-secondary">
+                        <div className="share-button-secondary-content">
+                            share on facebook
+                        </div>
+                    </div>
+                    <div className="share-button-primary">
+                        <FontAwesomeIcon icon={faFacebook} />
+                    </div>
+                </div>
+            </FacebookShareButton>
+
+            <LinkedinShareButton url={url}>
+                <div className="share-button">
+                    <div className="share-button-secondary">
+                        <div className="share-button-secondary-content">
+                            share on linkedin
+                        </div>
+                    </div>
+                    <div className="share-button-primary">
+                        <FontAwesomeIcon icon={faLinkedin} />
+                    </div>
+                </div>
+            </LinkedinShareButton>
+
+            <EmailShareButton url={url}>
+                <div className="share-button">
+                    <div className="share-button-secondary">
+                        <div className="share-button-secondary-content">
+                            share on email
+                        </div>
+                    </div>
+                    <div className="share-button-primary">
+                        <FontAwesomeIcon icon={faEnvelope} />
+                    </div>
+                </div>
+            </EmailShareButton>
+        </div>
+    )
+}

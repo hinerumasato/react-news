@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { WaveBackground } from "./WaveBackground"
 import { SliderContainer } from "./SliderContainer"
 import SubscribeNews from "@/components/partials/SubscribeNews"
-import PaginatePage from "@/components/partials/PaginatePage"
 import { useFeeds } from "@/hooks/useFeeds"
 import INewsItem from "@/interfaces/INewsItem"
 import { useTitle } from "@/hooks"
@@ -11,6 +10,7 @@ import { HomeNewsContainer } from "./HomeNewsContainer"
 import { IHomeNews } from "@/interfaces/IHomeNews"
 import { useFetchHomeFeeds } from "@/hooks/useFetchHomeFeeds"
 import { Loading } from "@/components/vendors/Loading/Loading"
+import { WVPagination } from "@/components/vendors/Pagination/WVPagination"
 
 export const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -61,7 +61,7 @@ export const Home = () => {
             </Container>
 
             <SubscribeNews />
-            <PaginatePage currentPage={currentPage} totalPages={10} onPageChange={handlePageChange} />
+            <WVPagination currentPage={currentPage} totalPages={10} onPageChange={handlePageChange} />
         </Container>
     )
 }

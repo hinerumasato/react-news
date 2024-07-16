@@ -54,6 +54,7 @@ export const Header = React.memo(() => {
                             <Nav.Link as={Link} to="/" onClick={() => setExpanded(false)}>Trang chủ</Nav.Link>
                             <Nav.Link as={Link} to="/news" onClick={() => setExpanded(false)}>Tin tức</Nav.Link>
                             <Nav.Link as={Link} to="/about" onClick={() => setExpanded(false)}>Về Wavy</Nav.Link>
+                            <Nav.Link as={Link} to="/news/history" onClick={() => setExpanded(false)}>Đã xem</Nav.Link>
                         </Nav>
 
                         <Nav>

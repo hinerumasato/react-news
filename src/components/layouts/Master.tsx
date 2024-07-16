@@ -1,7 +1,6 @@
 import { Header, Footer } from '@/components/partials'
 import { ILayout } from '@/interfaces'
-import {GoTopButton} from "@/components/partials/GoTopButton.tsx";
-
+import { GoTopButton } from '../vendors'
 export const Master: ILayout = ({ children }) => {
     return (
         <>
@@ -9,7 +8,7 @@ export const Master: ILayout = ({ children }) => {
             <main style={{ marginTop: '140px' }}>
                 {children}
             </main>
-            <GoTopButton/>
+            <GoTopButton />
             <Footer />
         </>
     )
