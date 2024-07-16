@@ -15,7 +15,7 @@ export const FocusedNewsItem = ({ newsImg, title, authorImg, authorName, pubDate
   link: string;
   categories: string;
 }) => {
-  const { handleReadMoreClick } = useViewedNews();
+  const { handleStorageNews } = useViewedNews();
 
   return (
     <Container className="newsitem-content d-flex flex-column justify-content-center mb-4">
@@ -52,7 +52,7 @@ export const FocusedNewsItem = ({ newsImg, title, authorImg, authorName, pubDate
         </div>
         <div className="newsitem-desc my-2">{description}</div>
         <div className="newsitem-below mt-4 d-flex justify-content-center">
-          <Link onClick={() => handleReadMoreClick({ title, newsImg, authorName, authorImg, pubDate, contentSnippet: description, newsCategories: categories , link })} to={Urls.toNewsDetailLink(link) as string} className="button btn-custom">Đọc thêm</Link>
+          <Link onClick={() => handleStorageNews({ title, newsImg, authorName, authorImg, pubDate, contentSnippet: description, newsCategories: categories , link })} to={Urls.toNewsDetailLink(link) as string} className="button btn-custom">Đọc thêm</Link>
         </div>
       </div>
     </Container>
