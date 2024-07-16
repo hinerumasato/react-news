@@ -10,13 +10,16 @@ export const CategoryBar = (
 ) => {
     const initialRssLink = localStorage.getItem('currentRssLink') || rssCategories[0].rss;
     const [currentRssLink, setCurrentRssLink] = useState(initialRssLink);
+
     useEffect(() => {
         localStorage.setItem('currentRssLink', currentRssLink);
     }, [currentRssLink]);
+
     function changeCategory(category: { ['name']: string, ['rss']: string }) {
         onChangeCategory(category)
         setCurrentRssLink(category.rss)
     }
+
     return (
         <div className="navbar-container" >
             <div className="navbar-wrapper">

@@ -92,7 +92,7 @@ export const NewsDetail = () => {
                     <Row>
                         <Col md={1}>
                             <div className="socials-share-wrapper">
-                                <Social url={url} />
+                                <Social url={Application.APP_URL + Urls.toNewsDetailLink(url) as string} />
                             </div>
                         </Col>
                         <Col md={10}>
