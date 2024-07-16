@@ -46,7 +46,6 @@ export const NewsDetail = () => {
     const data = useCrawlData(url);
     const feedDetail = useParseFeed(data);
     const textType = Urls.toCategoryType(type);
-    const socialRef = useRef<HTMLElement | null>(null);
     const articleRef = useRef<HTMLElement>();
     const [relatedFeeds, setRelatedFeeds] = useState<Array<INewsItem>>();
     const feeds = useFeeds(`${type}.rss`, 6);
@@ -65,7 +64,12 @@ export const NewsDetail = () => {
 
     useEffect(() => {
         feeds.then(data => setRelatedFeeds(data));
-    }, [feeds]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [url]);
 
     useEffect(() => {
         if (feedDetail?.title && feedDetail?.sapo && feedDetail?.content)
@@ -86,15 +90,16 @@ export const NewsDetail = () => {
             <article ref={articleRef as LegacyRef<HTMLElement>} id="newsDetail">
                 <Container style={{ width: '900px', maxWidth: '100%' }}>
                     <Row>
-                        <Col md={2} className="mt-5">
-                            <Social url={url} ref={socialRef} />
+                        <Col md={1}>
+                            <div className="socials-share-wrapper">
+                                <Social url={url} />
+                            </div>
 
                             <Container className="toggle-font-size-container">
                                 <ToggleFontSize currentFontSize={fontSize} handleChangeFontSize={handleChangeFontSize} />
                             </Container>
                         </Col>
-
-                        <Col md={10}>
+                        <Col md={11}>
                             {textType && <p className="text-secondary pt-3">{textType}</p>}
                             <h1 className="fw-bold">{feedDetail?.title}</h1>
                             <div className="d-flex align-items-center gap-2">
@@ -109,7 +114,7 @@ export const NewsDetail = () => {
                             {newsContent && <SummaryNews content={newsContent} />}
                             <p className="py-3" style={{ fontStyle: 'italic' }}>{feedDetail?.sapo}</p>
                             <div className="content" dangerouslySetInnerHTML={{ __html: feedDetail?.content as string }}></div>
-                            <div className="related-news">
+                            <div className="related-news py-5">
                                 <h2 className="fw-bold d-flex align-items-center">
                                     <Waves />
                                     Bài viết liên quan

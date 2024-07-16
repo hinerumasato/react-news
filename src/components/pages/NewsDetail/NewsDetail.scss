@@ -1,6 +1,5 @@
 #newsDetail {
     .content {
-
         img,
         figure,
         video {
@@ -24,6 +23,10 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .socials-share-wrapper {
+        position: relative;
     }
 
     .vertical-news-card {
