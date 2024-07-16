@@ -11,6 +11,7 @@ import { Social } from "./Social/Social";
 import { Waves } from "@/components/vendors";
 import TtsAudioMemo from "./TtsAudio";
 import { SummaryNews } from "./SummaryNews";
+import { ToggleFontSize } from "./ToggleFontSize";
 
 const lazyLoading = () => {
     const images = document.querySelectorAll('.content img');
@@ -51,6 +52,8 @@ export const NewsDetail = () => {
     const feeds = useFeeds(`${type}.rss`, 6);
     const [ttsContent, setTtsContent] = useState<string>("");
     const [newsContent, setNewsContent] = useState<string>("");
+    const [fontSize, setFontSize] = useState<number>(16);
+
 
     useEffect(() => {
         if (feedDetail?.title)
@@ -74,14 +77,23 @@ export const NewsDetail = () => {
         setNewsContent(extractTextContent(feedDetail?.content as string));
     }, [feedDetail?.title, feedDetail?.sapo, feedDetail?.content])
 
+    const handleChangeFontSize = (size: number) => {
+        setFontSize(size);
+    }
+
     return (
-        <section id="feedDetails">
+        <section id="feedDetails" style={{ fontSize: `${fontSize}px` }}>
             <article ref={articleRef as LegacyRef<HTMLElement>} id="newsDetail">
                 <Container style={{ width: '900px', maxWidth: '100%' }}>
                     <Row>
                         <Col md={2} className="mt-5">
                             <Social url={url} ref={socialRef} />
+
+                            <Container className="toggle-font-size-container">
+                                <ToggleFontSize currentFontSize={fontSize} handleChangeFontSize={handleChangeFontSize} />
+                            </Container>
                         </Col>
+
                         <Col md={10}>
                             {textType && <p className="text-secondary pt-3">{textType}</p>}
                             <h1 className="fw-bold">{feedDetail?.title}</h1>
@@ -92,9 +104,9 @@ export const NewsDetail = () => {
                                     <p className="m-0 text-secondary">{feedDetail?.authorTime}</p>
                                 </div>
                             </div>
-                             {ttsContent && <TtsAudioMemo text={ttsContent} />}
+                            {ttsContent && <TtsAudioMemo text={ttsContent} />}
 
-                             {newsContent && <SummaryNews content={newsContent} />}
+                            {newsContent && <SummaryNews content={newsContent} />}
                             <p className="py-3" style={{ fontStyle: 'italic' }}>{feedDetail?.sapo}</p>
                             <div className="content" dangerouslySetInnerHTML={{ __html: feedDetail?.content as string }}></div>
                             <div className="related-news">
@@ -102,17 +114,17 @@ export const NewsDetail = () => {
                                     <Waves />
                                     Bài viết liên quan
                                 </h2>
-                                <Row className="row-cols-md-3">
+                                <Row className="row-cols-md-3 mb-5">
                                     {relatedFeeds && relatedFeeds.map((item, index) => (
                                         <Col key={index} className="mt-3">
-                                            <Card>
+                                            <Card className="vertical-news-card news-card">
                                                 <Card.Img variant="top" src={item.newsImg} />
                                                 <Card.Body>
                                                     <Card.Title className="related-news-title">{item.title}</Card.Title>
                                                     <Card.Text className="related-news-snippet">
                                                         {item.contentSnippet}
                                                     </Card.Text>
-                                                    <Link to={Urls.toNewsDetailLink(item.link) as string} className="button btn-custom">Đọc thêm</Link>
+                                                    <Link to={Urls.toNewsDetailLink(item.link) as string} className="w-100 button btn-custom">Đọc thêm</Link>
                                                 </Card.Body>
                                             </Card>
                                         </Col>
