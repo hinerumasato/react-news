@@ -10,18 +10,12 @@ import { HomeNewsContainer } from "./HomeNewsContainer"
 import { IHomeNews } from "@/interfaces/IHomeNews"
 import { useFetchHomeFeeds } from "@/hooks/useFetchHomeFeeds"
 import { Loading } from "@/components/vendors/Loading/Loading"
-import { WVPagination } from "@/components/vendors/Pagination/WVPagination"
 
 export const Home = () => {
-    const [currentPage, setCurrentPage] = useState(1);
     const [sliderData, setSliderData] = useState<INewsItem[]>([]);
     const [allHomeNewsObjects, setAllHomeNewsObjects] = useState<IHomeNews[]>([]);
     const [isLoading, setIsLoading] = useState(false);
 
-
-    const handlePageChange = (page: number) => {
-        setCurrentPage(page);
-    }
 
     useTitle('Trang chủ');
 
@@ -59,9 +53,7 @@ export const Home = () => {
                 })}
 
             </Container>
-
             <SubscribeNews />
-            <WVPagination currentPage={currentPage} totalPages={10} onPageChange={handlePageChange} />
         </Container>
     )
 }

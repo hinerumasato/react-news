@@ -1,0 +1,44 @@
+.toggle-font-size-container {
+    margin-top: 0rem;
+    position: fixed;
+    right: calc(300px/1.2);
+    padding: 5px;
+
+    #toggleFontSize {
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+
+        .font-size-button {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .font-size-indicator {
+        font-size: 1rem !important;
+    }
+}
+
+.dark-theme {
+
+    .toggle-font-size-container {
+        .font-size-button {
+            background-color: #1a4380;
+            color: #fefefe;
+            border: 1px solid #042352;
+        }
+    }
+
+    .share-button {
+        filter: invert(1);
+
+        &-primary svg {
+            filter: invert(1);
+        }
+    }
+}

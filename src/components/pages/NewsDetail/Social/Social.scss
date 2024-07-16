@@ -10,7 +10,7 @@ $box-height: 100vh;
     padding-left: ($box-width / 2) - ($button-height / 2);
     top: 500px;
     // left: 50%;
-    margin-left: -($box-width / 2);
+    margin-left: -($box-width/1.5);
     margin-top: -($box-height / 2);
 
     .share-button {
@@ -63,7 +63,7 @@ $box-height: 100vh;
     position: absolute;
     width: $button-height;
     line-height: $button-height;
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 1px;
 }
 
