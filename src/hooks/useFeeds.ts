@@ -3,9 +3,10 @@ import { IRssItem } from '@/interfaces/IRssItem';
 import { parseISO, format } from 'date-fns';
 import ICategory from '@/interfaces/ICategory';
 import INewsItem from "@/interfaces/INewsItem";
+import { Application } from '@/constants';
 
 export const useFeeds = async (rss: string, numberOfItems: number = 0): Promise<INewsItem[]> => {
-    const API_URL = 'http://localhost:8000/rss/';
+    const API_URL = `${Application.API_PROXY}/rss/`;
     const response = await fetch(API_URL + rss, { method: 'GET' });
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
