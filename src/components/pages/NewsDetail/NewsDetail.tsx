@@ -11,7 +11,7 @@ import { Social } from "./Social/Social";
 import { Waves } from "@/components/vendors";
 import TtsAudioMemo from "./TtsAudio";
 import { SummaryNews } from "./SummaryNews";
-import { ToggleFontSize } from "./ToggleFontSize";
+import { ToggleFontSize } from "./FontSize/ToggleFontSize";
 
 const lazyLoading = () => {
     const images = document.querySelectorAll('.content img');
@@ -94,12 +94,8 @@ export const NewsDetail = () => {
                             <div className="socials-share-wrapper">
                                 <Social url={url} />
                             </div>
-
-                            <Container className="toggle-font-size-container">
-                                <ToggleFontSize currentFontSize={fontSize} handleChangeFontSize={handleChangeFontSize} />
-                            </Container>
                         </Col>
-                        <Col md={11}>
+                        <Col md={10}>
                             {textType && <p className="text-secondary pt-3">{textType}</p>}
                             <h1 className="fw-bold">{feedDetail?.title}</h1>
                             <div className="d-flex align-items-center gap-2">
@@ -137,9 +133,14 @@ export const NewsDetail = () => {
                                 </Row>
                             </div>
                         </Col>
+                        <Col md={1}>
+                            <div className="toggle-font-size-container">
+                                <ToggleFontSize currentFontSize={fontSize} handleChangeFontSize={handleChangeFontSize} />
+                            </div>
+                        </Col>
                     </Row>
                 </Container>
             </article>
-        </section>
+        </section >
     )
 }

@@ -10,7 +10,7 @@ $box-height: 100vh;
     padding-left: ($box-width / 2) - ($button-height / 2);
     top: 500px;
     // left: 50%;
-    margin-left: -($box-width / 2);
+    margin-left: -($box-width/1.5);
     margin-top: -($box-height / 2);
 
     .share-button {
@@ -63,7 +63,7 @@ $box-height: 100vh;
     position: absolute;
     width: $button-height;
     line-height: $button-height;
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 1px;
 }
 
@@ -87,28 +87,4 @@ $box-height: 100vh;
     border-radius: 0 ($button-height / 2) ($button-height / 2) 0;
     transform: translate3d(-100%, 0, 0);
     transition: transform 175ms ease;
-}
-
-.toggle-font-size-container {
-    margin-top: 12rem;
-
-    .font-size-button {
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-.dark-theme {
-
-    .toggle-font-size-container {
-        .font-size-button {
-            background-color: #1a4380;
-            color: #fefefe;
-            border: 1px solid #042352;
-        }
-    }
 }

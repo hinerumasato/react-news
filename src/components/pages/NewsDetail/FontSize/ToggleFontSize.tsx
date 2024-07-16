@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap"
 import { FaCirclePlus, FaCircleMinus } from "react-icons/fa6";
-import "./Social/Social.scss"
+import "./ToggleFontSize.scss";
 
 export const ToggleFontSize = ({ currentFontSize, handleChangeFontSize }:
     { currentFontSize: number, handleChangeFontSize: (fontSize: number) => void }) => {
@@ -21,6 +21,7 @@ export const ToggleFontSize = ({ currentFontSize, handleChangeFontSize }:
             <Button onClick={handleIncreaseFontSize} className="font-size-button">
                 <FaCirclePlus />
             </Button>
+            <div className="font-size-indicator">{currentFontSize}px</div>
             <Button onClick={handleDecreaseFontSize} className="font-size-button">
                 <FaCircleMinus />
             </Button>
