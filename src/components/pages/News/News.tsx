@@ -7,13 +7,17 @@ import { Container } from "react-bootstrap";
 import INewsItem from "@/interfaces/INewsItem.ts";
 import { useFeeds } from "@/hooks/useFeeds.ts";
 import { Loading } from "@/components/vendors/Loading/Loading.tsx";
+import { usePaginate } from "@/hooks/usePaginate";
+import { WVPagination } from "@/components/vendors/Pagination/WVPagination";
 
 export const News = () => {
     const [newsData, setNewsData] = useState<INewsItem[]>([])
     const [currentCategory, setCurrentCategory] = useState('home.rss')
-    // const newsItems = useFeeds(currentCategory, 30);
     const [isLoading, setIsLoading] = useState(false);
-    useTitle('Tin tức');
+    const [title, setTitle] = useState('Tin tức');
+    const { currentItems, currentPage, setCurrentPage, totalPages } = usePaginate(newsData, 8);
+    
+    useTitle(title);
 
     useEffect(() => {
         setIsLoading(true);
@@ -26,10 +30,16 @@ export const News = () => {
         fetchData();
     }, [currentCategory]);
 
-    function handleChangeCategory(category: { ['name']: string, ['rss']: string }) {
-        setCurrentCategory(category.rss);
-        useTitle(`Tin tức: ${category.name}`);
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
+    function handleChangeCategory(category: { ['name']: string, ['rss']: string }) {
+        const title = `Tin tức: ${category.name}`;
+        setCurrentCategory(category.rss);
+        setTitle(title);
+        setCurrentPage(1);
     }
 
     if (isLoading)
@@ -43,7 +53,7 @@ export const News = () => {
                 <h3>Nội dung mới nhất</h3>
             </div>
             <ul>
-                {newsData.map(({
+                {currentItems.map(({
                     title,
                     pubDate,
                     authorName,
@@ -60,7 +70,7 @@ export const News = () => {
                     );
                 })}
             </ul>
-
+            <WVPagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
         </Container>
     )
 }

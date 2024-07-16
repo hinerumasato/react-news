@@ -4,7 +4,7 @@ import { parseISO, format } from 'date-fns';
 import ICategory from '@/interfaces/ICategory';
 import INewsItem from "@/interfaces/INewsItem";
 
-export const useFeeds = async (rss: string, numberOfItems: number = 8): Promise<INewsItem[]> => {
+export const useFeeds = async (rss: string, numberOfItems: number = 0): Promise<INewsItem[]> => {
     const API_URL = 'http://localhost:8000/rss/';
     const response = await fetch(API_URL + rss, { method: 'GET' });
     if (!response.ok) {
@@ -16,7 +16,7 @@ export const useFeeds = async (rss: string, numberOfItems: number = 8): Promise<
     }
     const data = respJson.data;
 
-    const limitedItems = data.slice(0, numberOfItems);
+    const limitedItems = (numberOfItems > 0) ? data.slice(0, numberOfItems) : data;
 
     const updatedItems = limitedItems.map((item: IRssItem) => {
         const title = item.title;
