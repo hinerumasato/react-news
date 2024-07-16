@@ -81,3 +81,15 @@ body.dark-theme .accordion-body {
 body.dark-theme .accordion-item {
   border: none !important;
 }
+
+.news-card {
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px 0 rgba(21, 21, 21, 0.2);
+
+}

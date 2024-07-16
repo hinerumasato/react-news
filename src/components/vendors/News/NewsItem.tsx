@@ -20,7 +20,7 @@ export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, descr
     const { handleStorageNews } = useViewedNews();
 
     return (
-        <Container className="newsitem-content d-flex align-items-center mb-4">
+        <Container className="newsitem-content d-flex align-items-center mb-4 news-card">
             <div className="post-format-wrapper">
                 <div className="post-format-img">
                     <a href="" className="format-img-link">
@@ -47,7 +47,7 @@ export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, descr
                 </div>
                 <div className="newsitem-desc my-2">{description}</div>
                 <div className="newsitem-below mt-4 d-flex justify-content-between">
-                    <Link onClick={() => handleStorageNews({ title, newsImg, authorName, authorImg, pubDate, contentSnippet: description, newsCategories: categories , link })} to={Urls.toNewsDetailLink(link) as string} className="button btn-custom">Đọc thêm</Link>
+                    <Link onClick={() => handleStorageNews({ title, newsImg, authorName, authorImg, pubDate, contentSnippet: description, newsCategories: categories, link })} to={Urls.toNewsDetailLink(link) as string} className="button btn-custom">Đọc thêm</Link>
                     <div className="newsitem-min-read">
                         <BsBook className="me-2 fs-5" />
                         <span className="fs-6">{categories}</span>

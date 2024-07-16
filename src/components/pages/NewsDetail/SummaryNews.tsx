@@ -23,7 +23,7 @@ export const SummaryNews = ({ content }: { content: string }) => {
             <Accordion.Item eventKey="0">
                 <Accordion.Header>Tóm tắt bài viết</Accordion.Header>
                 <Accordion.Body>
-                    <div style={{ fontSize: "0.95rem" }} dangerouslySetInnerHTML={{ __html: summaryHtml }} />
+                    <div dangerouslySetInnerHTML={{ __html: summaryHtml }} />
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>
