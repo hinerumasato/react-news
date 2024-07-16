@@ -1,12 +1,57 @@
 .category-bar {
     margin-bottom: 20px;
 }
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
 
+.navbar-wrapper {
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar on Firefox */
+
+    * {
+        width: fit-content;
+    }
+}
+
+.navbar::-webkit-scrollbar {
+    display: none; /* Hide scrollbar on Chrome, Safari, and Opera */
+}
+.nav-button {
+    background-color: #ff007f;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 43px;
+    margin: 5px;
+}
 .category-bar .button-category {
     border: 1px solid #FC6668;
-    border-radius: 100px;
+    border-radius: 150px;
     margin: 0.3rem;
     transition: .3s;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* Ẩn thanh cuộn trên IE và Edge */
+
+    //display: flex;
 }
 
 .category-bar .button-category.active {
@@ -35,5 +80,11 @@
 
     &.active {
         color: #FFF;
+    }
+}
+
+.category-bar {
+    .slick-slide {
+        width: fit-content !important;
     }
 }
