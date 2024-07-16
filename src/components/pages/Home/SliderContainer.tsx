@@ -47,7 +47,6 @@ export const SliderContainer = ({content}: {
     const {handleStorageNews} = useViewedNews();
     const navigate = useNavigate();
 
-
     const handleClick = (post: INewsItem) => {
         handleStorageNews(post)
         const newsDetailLink = Urls.toNewsDetailLink(post.link);

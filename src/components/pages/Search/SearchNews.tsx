@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { SearchNewsProps } from "@/interfaces/SearchNewsProps.ts";
 import { Button, Form, Modal } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
@@ -31,6 +31,12 @@ export const SearchNews: React.FC<SearchNewsProps> = ({ showModal, setShowModal 
         })
 
     }
+
+    const handleSubmitForm = (e: FormEvent) => {
+        e.preventDefault();
+        handleSearch();
+    }
+
     const handleClose = () => setShowModal(false);
     return (
         <Modal show={showModal} onHide={handleClose}>
@@ -39,7 +45,7 @@ export const SearchNews: React.FC<SearchNewsProps> = ({ showModal, setShowModal 
             </Modal.Header>
             <Modal.Body>
                 <Container className="container">
-                    <Form className="input-group subscribe-form">
+                    <Form className="input-group subscribe-form" onSubmit={handleSubmitForm}>
                         <Form.Control
                             className="border-2"
                             type="text"
@@ -53,6 +59,7 @@ export const SearchNews: React.FC<SearchNewsProps> = ({ showModal, setShowModal 
                             Danh mục thể loại
                         </Form.Label>
                         <Form.Select className="w-50 rounded-2 py-2 px-1" value={selectedCategory} onChange={handleCategoryChange}>
+                            <option value="Tất cả">Tất cả</option>
                             {rssCategories.map((category, index) => (
                                 <option key={index} value={category.name}>{category.name}</option>
                             ))}

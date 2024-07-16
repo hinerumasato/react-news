@@ -3,8 +3,7 @@ import { BsBook } from "react-icons/bs";
 import '@/assets/css/NewItem.scss';
 import { Link } from "react-router-dom";
 import { Urls } from "@/utils";
-import {useViewedNews} from "@/hooks/useViewedNews.ts";
-import INewsItem from "@/interfaces/INewsItem.ts";
+import { useViewedNews } from "@/hooks/useViewedNews.ts";
 
 export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, description, categories, link }: {
     title: string;
@@ -48,7 +47,6 @@ export const NewsItem = ({ title, newsImg, authorName, authorImg, pubDate, descr
                 </div>
                 <div className="newsitem-desc my-2">{description}</div>
                 <div className="newsitem-below mt-4 d-flex justify-content-between">
-
                     <Link onClick={() => handleStorageNews({ title, newsImg, authorName, authorImg, pubDate, contentSnippet: description, newsCategories: categories , link })} to={Urls.toNewsDetailLink(link) as string} className="button btn-custom">Đọc thêm</Link>
                     <div className="newsitem-min-read">
                         <BsBook className="me-2 fs-5" />
