@@ -1,8 +1,10 @@
+import { Application } from "@/constants";
 import {CityOption} from "@/interfaces/CityOption.ts";
 import axios from "axios";
 export const useWeathers = async (selectedCity: CityOption | null)=> {
     if (selectedCity) {
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity.value},VN&appid=08f1a796d3b1d18369fb4fc769f3d61d&units=metric&lang=vi`);
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity.value},VN&appid=${Application.WEATHER_API_KEY}&units=metric&lang=vi`
+        const response = await axios.get(url);
 
         const data = response.data;
 

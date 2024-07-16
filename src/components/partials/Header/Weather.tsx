@@ -4,15 +4,9 @@ import { useWeathers } from "@/hooks/useWeathers.ts";
 import "@/assets/css/Weather.scss";
 import { Popover, OverlayTrigger } from 'react-bootstrap';
 import { IWeatherItem } from "@/interfaces/IWeatherItem.ts";
+import { useCurrentLocation } from '@/hooks';
+import { useGetCity } from '@/hooks/useGetCity';
 
-
-const cities: CityOption[] = [
-    { value: 'Ho Chi Minh City', label: 'Hồ Chí Minh' },
-    { value: 'Ha Noi', label: 'Hà Nội' },
-    { value: 'Đà Nẵng', label: 'Đà Nẵng' },
-    { value: 'Hải Phòng', label: 'Hải Phòng' },
-    { value: 'Cần Thơ', label: 'Cần Thơ' }
-];
 const getCurrentDate = () => {
     const days = ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'];
     const now = new Date();
@@ -25,9 +19,25 @@ const getCurrentDate = () => {
 };
 
 export const Weather: React.FC = () => {
+    const [cities, setCities] = useState<CityOption[]>([
+        { value: 'Ho Chi Minh City', label: 'Hồ Chí Minh' },
+        { value: 'Ha Noi', label: 'Hà Nội' },
+        { value: 'Đà Nẵng', label: 'Đà Nẵng' },
+        { value: 'Hải Phòng', label: 'Hải Phòng' },
+        { value: 'Cần Thơ', label: 'Cần Thơ' }
+    ]);
+    const [weatherItem, setWeatherItem] = useState<IWeatherItem>();
+    const { location } = useCurrentLocation();
+    const cityName = useGetCity(location?.latitude as number, location?.longitude as number);
     const [selectedCity, setSelectedCity] = useState<CityOption | null>(cities[0]);
-    const [weatherItem, setWeatherItem] = useState<IWeatherItem>()
-
+    
+    useEffect(() => {
+        if(cityName) {
+            setCities(cities => [{ value: cityName, label: cityName }, ...cities]);
+            setSelectedCity({ value: cityName, label: cityName });
+        }
+    }, [cityName]);
+    
     useEffect(() => {
         const fetchWeatherData = async () => {
             const weatherData = await useWeathers(selectedCity);
@@ -99,9 +109,9 @@ export const Weather: React.FC = () => {
                     </tr>
                     <tr>
                         <td>
-                            <select className="city-select" onChange={handleCityChange} defaultValue="">
+                            <select className="form-select border-0" onChange={handleCityChange}>
                                 {cities.map(city => (
-                                    <option key={city.value} value={city.value}>{city.label}</option>
+                                    <option selected={city.value === selectedCity?.value} key={city.value} value={city.value}>{city.label}</option>
                                 ))}
                             </select>
                         </td>
