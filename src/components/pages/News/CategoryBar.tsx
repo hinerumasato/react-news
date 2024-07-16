@@ -25,7 +25,6 @@ export const CategoryBar = (
         <div className="category-bar mt-5">
             {rssCategories.map((category, index) => {
                 return (
-
                     <CategoryBarButton key={index} data-link={category.rss}
                         active={category.rss === currentRssLink}
                         onClick={() => {
@@ -35,6 +34,24 @@ export const CategoryBar = (
                     </CategoryBarButton>
                 )
             })}
+
+            {/* <select
+                className="form-select"
+                value={currentRssLink}
+                onChange={(e) => {
+                    const selectedRssLink = e.target.value;
+                    const selectedCategory = rssCategories.find(category => category.rss === selectedRssLink);
+                    if (selectedCategory) {
+                        changeCategory(selectedCategory);
+                    }
+                }}
+            >
+                {rssCategories.map((category, index) => (
+                    <option key={index} value={category.rss}>
+                        {category.name}
+                    </option>
+                ))}
+            </select> */}
         </div>
     )
 }

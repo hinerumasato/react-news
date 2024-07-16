@@ -12,7 +12,8 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/rss/, '')
       }
-    }
+    },
+    host: true
   },
   preview: {
     port: 3000,

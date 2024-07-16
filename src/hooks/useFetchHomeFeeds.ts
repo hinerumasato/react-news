@@ -1,4 +1,4 @@
-import { rssCategories } from '@/constants';
+import { Application, rssCategories } from '@/constants';
 import { IHomeNews } from '@/interfaces/IHomeNews';
 import { IRssItem } from '@/interfaces/IRssItem';
 import { format, parseISO } from 'date-fns';
@@ -9,7 +9,7 @@ export const useFetchHomeFeeds = async (numberItemsPerRss = 8) => {
     const homeNews: IHomeNews[] = [];
 
     await Promise.all(rssCategories.map(async (category: { name: string; rss: string; }) => {
-        const API_URL = 'http://localhost:8000/rss/';
+        const API_URL = `${Application.API_PROXY}/rss/`;
         const response = await fetch(API_URL + category.rss, { method: 'GET' });
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

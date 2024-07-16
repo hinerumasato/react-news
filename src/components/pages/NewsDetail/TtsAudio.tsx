@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Container } from "react-bootstrap";
+import { Application } from "@/constants";
 
 const TtsAudio = ({ text }: { text: string }) => {
     const [audioSrc, setAudioSrc] = useState<string>("");
@@ -11,7 +12,7 @@ const TtsAudio = ({ text }: { text: string }) => {
             const formData = new FormData();
             formData.append("text", text);
 
-            const resp = await axios.post('http://localhost:8000/tts', formData);
+            const resp = await axios.post(`${Application.API_PROXY}/tts`, formData);
             setAudioSrc(resp.data);
         }
 
