@@ -19,8 +19,8 @@ const TtsAudio = ({ text }: { text: string }) => {
     }, [text]);
 
     return (
-        <Container className="tts-audio">
-            <audio src={`data:audio/mp3;base64,${audioSrc}`} controls />
+        <Container className="tts-audio mt-3">
+            <audio className="w-100" src={`data:audio/mp3;base64,${audioSrc}`} controls />
         </Container>
     )
 }

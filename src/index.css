@@ -55,3 +55,29 @@ body.dark-theme {
   background-color: #111318;
   color: #fefefe;
 }
+
+body.light-theme .accordion-body,
+body.light-theme .accordion-button {
+  background: linear-gradient(to right, #F5E4DC, #fff);
+
+  color: #212529;
+}
+
+body.dark-theme .accordion-body,
+body.dark-theme .accordion-button {
+  background: linear-gradient(to right, #6b1f31, #482828);
+  color: #fefefe;
+}
+
+body.dark-theme .accordion-button::after {
+  filter: invert(1);
+}
+
+body.dark-theme .accordion-body {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+body.dark-theme .accordion-item {
+  border: none !important;
+}
