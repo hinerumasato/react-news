@@ -61,7 +61,8 @@ export const NewsDetail = () => {
 
     useEffect(() => {
         feeds.then(data => setRelatedFeeds(data));
-    }, [feeds]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
