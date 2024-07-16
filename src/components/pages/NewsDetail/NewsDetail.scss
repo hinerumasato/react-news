@@ -1,5 +1,6 @@
 #newsDetail {
     .content {
+
         img,
         figure,
         video {
@@ -23,5 +24,35 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .vertical-news-card {
+        background-color: #fefefe;
+        color: #212529;
+        border: 1px solid #d2d2d2;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    figure img {
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.dark-theme {
+    #newsDetail {
+        .vertical-news-card {
+            background-color: #212529;
+            color: #fefefe;
+            border: 1px solid #6c6c6c;
+        }
     }
 }

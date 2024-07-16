@@ -1,9 +1,9 @@
 import { Container } from "react-bootstrap"
 import '@/assets/css/NewItem.scss';
 import { BsBook } from "react-icons/bs";
-import {useViewedNews} from "@/hooks/useViewedNews.ts";
-import {Link} from "react-router-dom";
-import {Urls} from "@/utils";
+import { useViewedNews } from "@/hooks/useViewedNews.ts";
+import { Link } from "react-router-dom";
+import { Urls } from "@/utils";
 
 export const FocusedNewsItem = ({ newsImg, title, authorImg, authorName, pubDate, description, link, categories }: {
   newsImg: string;
@@ -18,7 +18,7 @@ export const FocusedNewsItem = ({ newsImg, title, authorImg, authorName, pubDate
   const { handleStorageNews } = useViewedNews();
 
   return (
-    <Container className="newsitem-content d-flex flex-column justify-content-center mb-4">
+    <Container className="newsitem-content d-flex flex-column justify-content-center mb-4 news-card">
       <div className="post-format-wrapper">
         <div className="post-format-img">
           <a href="" className="format-img-link">
@@ -52,7 +52,7 @@ export const FocusedNewsItem = ({ newsImg, title, authorImg, authorName, pubDate
         </div>
         <div className="newsitem-desc my-2">{description}</div>
         <div className="newsitem-below mt-4 d-flex justify-content-center">
-          <Link onClick={() => handleStorageNews({ title, newsImg, authorName, authorImg, pubDate, contentSnippet: description, newsCategories: categories , link })} to={Urls.toNewsDetailLink(link) as string} className="button btn-custom">Đọc thêm</Link>
+          <Link onClick={() => handleStorageNews({ title, newsImg, authorName, authorImg, pubDate, contentSnippet: description, newsCategories: categories, link })} to={link} className="button btn-custom">Đọc thêm</Link>
         </div>
       </div>
     </Container>

@@ -6,15 +6,6 @@
   margin-bottom: 10px;
 }
 
-.city-select {
-  border: none;
-  background-color: transparent;
-  appearance: none;
-  /* Loại bỏ mũi tên mặc định của select */
-  font-size: 1.2rem;
-  color: #333;
-  margin-right: 20px;
-}
 
 .weather-info {
   display: flex;
@@ -40,17 +31,13 @@
     color: #333;
   }
 
-  .city-select {
+  .form-select {
     color: #333;
   }
 }
 
 .dark-theme {
   .date-time {
-    color: #fefefe;
-  }
-
-  .city-select {
     color: #fefefe;
   }
 
@@ -74,8 +61,9 @@
     }
   }
 
-  .city-select {
+  .form-select {
     background-color: #212529 !important;
     color: #fefefe !important;
+
   }
 }
