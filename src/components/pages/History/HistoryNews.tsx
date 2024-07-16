@@ -29,11 +29,18 @@ export const HistoryNews = () => {
 
     return (
         <div>
-            <Container className="container">
-                <NewsItemContainer data={currentItems} containerTitle="Lịch sử tin tức"/>
-                <WVPagination currentPage={currentPage} totalPages={totalPages} onPageChange={handleChangePage} />
-            </Container>
-        </div>
-    );
+    <Container className="container">
+        {viewedNews.length > 0 ? (
+                <>
+                    <NewsItemContainer data={currentItems} containerTitle="Lịch sử tin tức"/>
+                    <WVPagination currentPage={currentPage} totalPages={totalPages} onPageChange={handleChangePage} />
+                </>
+            ) : (
+            <NewsItemContainer data={currentItems} containerTitle="Chưa có lịch sử"/>
+
+        )}
+</Container>
+</div>
+);
 
 }
