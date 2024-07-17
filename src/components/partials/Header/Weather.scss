@@ -1,0 +1,69 @@
+.weather-container {
+  text-align: center;
+}
+
+.date-time {
+  margin-bottom: 10px;
+}
+
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.temperature {
+  font-size: 1.1rem;
+  margin-right: 10px;
+  color: #e30b87;
+}
+
+.weather-info img {
+  width: 50px;
+  height: auto;
+  color: #ffd700;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+}
+
+.light-theme {
+  .date-time {
+    color: #333;
+  }
+
+  .form-select {
+    color: #333;
+  }
+}
+
+.dark-theme {
+  .date-time {
+    color: #fefefe;
+  }
+
+  .temperature {
+    color: #ff0081;
+  }
+
+  .popover {
+    background-color: #212529;
+    color: #fefefe;
+
+    box-shadow: 3px 3px 10px 3px rgba(78, 78, 78, 0.4);
+
+    &-title {
+      background-color: #333;
+    }
+
+    dt,
+    dd {
+      color: #fefefe
+    }
+  }
+
+  .form-select {
+    background-color: #212529 !important;
+    color: #fefefe !important;
+
+  }
+}

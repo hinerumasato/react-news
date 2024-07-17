@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.btn-custom {
+  background: linear-gradient(to right, #FC6668, #E10489);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-custom:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cdefs%3e%3clinearGradient id='a' x1='50%25' x2='50%25' y1='-10.959%25' y2='100%25'%3e%3cstop stop-color='%23FFFFFF77' stop-opacity='.25' offset='0%25'/%3e%3cstop stop-color='%23FFFFFF77' offset='100%25'/%3e%3c/linearGradient%3e%3c/defs%3e%3cpath fill='url(%23a)' fill-rule='evenodd' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e"),
+    url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3e%3cdefs%3e%3clinearGradient id='a' x1='50%25' x2='50%25' y1='-10.959%25' y2='100%25'%3e%3cstop stop-color='%23FFFFFFB5' stop-opacity='.25' offset='0%25'/%3e%3cstop stop-color='%23FFFFFFB5' offset='100%25'/%3e%3c/linearGradient%3e%3c/defs%3e%3cpath fill='url(%23a)' fill-rule='evenodd' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z'/%3e%3c/svg%3e");
+
+  background-repeat: repeat-x;
+  background-size: 1600px 50%;
+  background-position: 0 130%;
+
+  animation: 5s waves linear infinite forwards;
+
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+
+}
+
+.btn-custom:hover:before {
+  opacity: 0.5;
+  transition: 0.5s ease-in-out;
+}
+
+body.light-theme {
+  background-color: #fff;
+  color: #212529;
+}
+
+body.dark-theme {
+  background-color: #111318;
+  color: #fefefe;
+}
+
+body.light-theme .accordion-body,
+body.light-theme .accordion-button {
+  background: linear-gradient(to right, #F5E4DC, #fff);
+
+  color: #212529;
+}
+
+body.dark-theme .accordion-body,
+body.dark-theme .accordion-button {
+  background: linear-gradient(to right, #6b1f31, #482828);
+  color: #fefefe;
+}
+
+body.dark-theme .accordion-button::after {
+  filter: invert(1);
+}
+
+body.dark-theme .accordion-body {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+body.dark-theme .accordion-item {
+  border: none !important;
+}
+
+.news-card {
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px 0 rgba(21, 21, 21, 0.2);
+
+}

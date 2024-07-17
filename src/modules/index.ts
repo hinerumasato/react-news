@@ -1,0 +1,1 @@
+export { FeedDomFactory } from "./dom-class/FeedDomFactory";

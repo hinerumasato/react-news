@@ -1,0 +1,21 @@
+.page-item.active .page-link {
+    background: linear-gradient(90deg, #e30b87 0%, #fb6369 100%) !important;
+    border: 1px solid #e30b87 !important;
+
+}
+
+.page-item .page-link {
+    background: #4e74e7 !important;
+    color: white;
+    border: 1px solid #4e74e7 !important;
+    border-radius: 5px !important;
+    margin: 0 0.1rem !important;
+}
+
+.page-item.disabled .page-link {
+    background: #b1c0ee !important;
+    color: rgb(35, 35, 35);
+    border: 1px solid #b1c0ee !important;
+    border-radius: 5px !important;
+    margin: 0 0.1rem !important;
+}
