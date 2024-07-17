@@ -1,4 +1,4 @@
-import "@/assets/css/NewItem.scss";
+import "@/components/vendors/News/NewItem.scss";
 import INewsItem from "@/interfaces/INewsItem.ts";
 import { FocusedNewsItem } from "./FocusedNewsItem";
 import { Container } from "react-bootstrap";

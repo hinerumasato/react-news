@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowAltCircleUp } from "react-icons/fa";
-import "@/assets/css/GoToTopBtn.scss";
+import "@/components/vendors/Buttons/GoToTopBtn.scss";
 
 
 export const GoTopButton: React.FC = () => {

@@ -1,6 +1,5 @@
 import "@theme-toggles/react/css/Around.css"
 import { Around } from "@theme-toggles/react"
-import "@/assets/css/FabButton.scss"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeThemeAction } from "@/redux/actions";

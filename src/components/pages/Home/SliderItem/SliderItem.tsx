@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import "@/assets/css/SliderItem.scss";
+import "@/components/pages/Home/SliderItem/SliderItem.scss";
 import INewsItem from "@/interfaces/INewsItem.ts";
 
 

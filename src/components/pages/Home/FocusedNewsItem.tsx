@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap"
-import '@/assets/css/NewItem.scss';
+import '@/components/vendors/News/NewItem.scss';
 import { BsBook } from "react-icons/bs";
 import { useViewedNews } from "@/hooks/useViewedNews.ts";
 import { Link } from "react-router-dom";

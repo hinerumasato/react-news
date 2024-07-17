@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CityOption } from "@/interfaces/CityOption.ts";
 import { useWeathers } from "@/hooks/useWeathers.ts";
-import "@/assets/css/Weather.scss";
+import "@/components/partials/Header/Weather.scss";
 import { Popover, OverlayTrigger } from 'react-bootstrap';
 import { IWeatherItem } from "@/interfaces/IWeatherItem.ts";
 import { useCurrentLocation } from '@/hooks';

@@ -1,8 +1,8 @@
 import Container from "react-bootstrap/Container";
 import {Card, Col, Row} from "react-bootstrap";
-import {WaveBackground} from "@/components/pages/Home/WaveBackground.tsx";
+import {WaveBackground} from "@/components/pages/Home/WaveBackground/WaveBackground.tsx";
 import React from "react";
-import "@/assets/css/About.scss";
+import "@/components/pages/About/About.scss";
 
 export const About: React.FC = () => {
     return (
@@ -27,7 +27,7 @@ export const About: React.FC = () => {
             <Row className="my-5">
                 <Col md={4} className="p-3">
                     <Card className="z-3 rounded-3 card-one">
-                        <img src="src/assets/css/image/img11.webp"/>
+                        <img src="src/assets/image/img11.webp"/>
                         <Card.Body>
                             <Card.Title className="text-center">TRẦN THẮNG LỢI</Card.Title>
                             <Card.Text>
@@ -38,7 +38,7 @@ export const About: React.FC = () => {
                 </Col>
                 <Col md={4} className="p-3">
                     <Card className="z-3 card-one">
-                        <img src="src/assets/css/image/img22.jpg"/>
+                        <img src="src/assets/image/img22.jpg"/>
                         <Card.Body>
                             <Card.Title className="text-center">NGUYỄN PHƯƠNG NHÃ</Card.Title>
                             <Card.Text>
@@ -49,7 +49,7 @@ export const About: React.FC = () => {
                 </Col>
                 <Col md={4} className="p-3">
                     <Card className="z-3 card-one">
-                        <img src="src/assets/css/image/img33.jpg"/>
+                        <img src="src/assets/image/img33.jpg"/>
                         <Card.Body>
                             <Card.Title className="text-center">LẠI THỊ BÍCH PHƯỢNG</Card.Title>
                             <Card.Text>
@@ -72,7 +72,7 @@ export const About: React.FC = () => {
                     </form>
                 </Col>
                 <Col md={5}>
-                    <img src="src/assets/css/image/img1.webp" className="img-fluid rounded-3"/>
+                    <img src="src/assets/image/img1.webp" className="img-fluid rounded-3"/>
                 </Col>
             </Row>
         </Container>

@@ -1,5 +1,5 @@
-import "@/assets/css/CategoryBar.scss";
-import { CategoryBarButton } from "@/components/vendors/Buttons/CategoryBarButton";
+import "@/components/pages/News/CategoryBar/CategoryBar.scss";
+import { CategoryBarButton } from "@/components/vendors/Buttons/CategoryBarButton.tsx";
 import { rssCategories } from "@/constants";
 import {useEffect, useState} from "react";
 

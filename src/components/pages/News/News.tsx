@@ -1,4 +1,4 @@
-import { CategoryBar } from "@/components/pages/News/CategoryBar.tsx";
+import { CategoryBar } from "@/components/pages/News/CategoryBar/CategoryBar.tsx";
 import { Waves } from "@/components/vendors";
 import { NewsItem } from "@/components/vendors/News/NewsItem.tsx";
 import { useTitle } from "@/hooks";

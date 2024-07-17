@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { rssCategories } from "@/constants";
 import INewsItem from "@/interfaces/INewsItem.ts";
 import { useFeeds } from "@/hooks/useFeeds.ts";
-import "@/assets/css/SearchNews.scss";
+import "@/components/pages/Search/SearchNews.scss";
 
 export const SearchNews: React.FC<SearchNewsProps> = ({ showModal, setShowModal }) => {
     const [inputValue, setInputValue] = useState('');

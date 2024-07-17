@@ -1,8 +1,8 @@
-import {SliderItem} from "./SliderItem";
+import {SliderItem} from "./SliderItem/SliderItem.tsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "@/assets/css/SliderContainer.scss";
+import "@/components/pages/Home/SliderContainer/SliderContainer.scss";
 import INewsItem from "@/interfaces/INewsItem";
 import {useViewedNews} from "@/hooks/useViewedNews.ts";
 import {useNavigate} from "react-router-dom";

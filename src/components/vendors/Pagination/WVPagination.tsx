@@ -1,4 +1,4 @@
-import "@/assets/css/PaginatePage.scss";
+import "@/components/vendors/Pagination/PaginatePage.scss";
 import PaginationProps from '@/interfaces/IPagination';
 import React from 'react';
 import Container from 'react-bootstrap/Container';
